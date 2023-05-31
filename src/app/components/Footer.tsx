@@ -9,7 +9,7 @@ function Footer() {
           <h5 className="font-ibarra pl-3  text-base">INFORMATIONS</h5>
         </div>
 
-        <div className="font-imprima text-sm h-4/5 flex flex-col items-center justify-around w-full">
+        <div className="font-imprima text-sm h-4/5 flex flex-col items-center justify-around gap-4 w-full">
           <div className="text-center">
             <p>
               Mardi: 9h30 - 19h00
@@ -29,14 +29,17 @@ function Footer() {
               42 170 Saint-Just-Saint-Rambert
             </p>
           </div>
-          <div className="flex w-full justify-center gap-4">
-            <Image
-              src="/assets/insta.png"
-              width={40}
-              height={40}
-              alt="instaLogo"
-            />
-            <Image src="/assets/fb.png" width={40} height={40} alt="fbLogo" />
+          <div className="flex flex-col items-center">
+            <p className="font-MrsSaintDelafield text-2xl">Suivez moi</p>
+            <div className="flex w-full justify-center gap-4">
+              <Image
+                src="/assets/insta.png"
+                width={40}
+                height={40}
+                alt="instaLogo"
+              />
+              <Image src="/assets/fb.png" width={40} height={40} alt="fbLogo" />
+            </div>
           </div>
         </div>
       </div>
