@@ -1,9 +1,12 @@
 import Image from "next/image";
+import photoHome from "../../public/assets/photoHome.png";
 
-export default function Home() {
+function page() {
   return (
-    <>
-      <h1>Hello World!</h1>
-    </>
+    <div>
+      <Image src={photoHome} width={1400} height={157} alt="photo home page" />
+    </div>
   );
 }
+
+export default page;
