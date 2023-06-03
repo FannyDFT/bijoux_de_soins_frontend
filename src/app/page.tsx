@@ -1,41 +1,28 @@
 import Image from "next/image";
 import photoHome from "../../public/assets/photoHome.png";
+import Descriptions from "./homePage/Descriptions";
+import Prestations from "./homePage/Prestations/Prestations";
+import Appointment from "./homePage/appointments/Appointment";
+import Carousel from "./homePage/carousel/Carousel";
 
 function page() {
   return (
     <div className="flex flex-col">
-      <div>
+      <div className="relative w-screen">
         <Image
           src={photoHome}
-          width={1600}
+          width={2000}
           height={157}
           alt="photo home page"
         />
-        <p className="text-gray font-MrsSaintDelafield text-2xl relative bottom-28 left-4 sm:text-8xl sm:relative sm:bottom-80">
+        <h2 className="text-whiteText font-MrsSaintDelafield text-2xl absolute top-36 left-6 md:text-8xl md:absolute md:top-80 md:left-8">
           Institut Bijoux de Soins
-        </p>
+        </h2>
       </div>
-      <div>
-        <h3 className="font-ibarra">L&apos;Institut</h3>
-        <p>Prendre soin de son corps</p>
-        <p>C&apos;est donner envie à son âme d&apos;y rester </p>
-        <p>
-          Bienvenue dans l&apos;univers de Bijoux de Soins. Vous y retrouverez
-          des prestations dédiés à la beauté et au bien-être pour une véritable
-          parenthèse détente. Dans le but de réaliser des soins de beauté
-          relaxants avec des résultats concrets, j&apos;ai choisi des marques
-          françaises respectueuses de l&apos;environnement
-        </p>
-        <p>
-          Ces marques professionnelles proposent des produits de qualités
-          d&apos;une réelle efficacité, composés d&apos;ingrédients
-          d&apos;origine naturelle, conçus, développés et fabriqués
-          exclusivement en France. Des produits cosmétiques Bio tel que le
-          maquillage , les soins pour le visage , le corps et l&apos;hygiène
-          sont disponibles à l&apos;institut pour prendre soin de soi même à la
-          maison .
-        </p>
-      </div>
+      <Descriptions />
+      <Prestations />
+      <Appointment />
+      <Carousel />
     </div>
   );
 }

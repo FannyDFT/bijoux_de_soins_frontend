@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -19,6 +21,9 @@ module.exports = {
         ibarra: ["ibarra", "sans serif"],
         IBMONOPLEX: ["IBM PLEX MONO", "sans serif"],
         MrsSaintDelafield: ["Mrs Saint Delafield", "sans serif"],
+      },
+      backgroundImage: {
+        background: "url('/assets/fondsym.jpg')",
       },
     },
   },
