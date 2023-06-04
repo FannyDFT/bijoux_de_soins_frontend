@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -11,14 +13,18 @@ module.exports = {
         darkText: "#3a3a3a",
         whiteText: "#F1F1F1",
         terracota: "#B36A5E",
-        grey: "EEE2DF",
-        beige: "EED7C5",
+        gray: "#EEE2DF",
+        beige: "#EED7C5",
       },
       fontFamily: {
         imprima: ["imprima", "sans serif"],
         ibarra: ["ibarra", "sans serif"],
         IBMONOPLEX: ["IBM PLEX MONO", "sans serif"],
         MrsSaintDelafield: ["Mrs Saint Delafield", "sans serif"],
+      },
+      backgroundImage: {
+        background: "url('/assets/fondsym.jpg')",
+        banniere: "url('/assets/photoHome.png')",
       },
     },
   },

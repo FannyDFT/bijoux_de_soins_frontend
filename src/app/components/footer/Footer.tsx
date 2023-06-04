@@ -8,11 +8,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 function Footer() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [imdobile, setImdobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 750);
+      setImdobile(window.innerWidth <= 750);
     };
 
     handleResize();
@@ -23,12 +23,12 @@ function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "mdooth",
     });
   };
 
   return (
-    <div className="h-96 bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-sm font-imprima p-4 sm:flex-row sm:h-48 sm:justify-between sm:text-l ">
+    <div className="h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-md font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-xl ">
       <div className="flex flex-col gap-1 text-center">
         <p>14 rue Colombet Solle</p>
         <p>42 270 Saint-Just-Saint-Rambert</p>
@@ -44,7 +44,7 @@ function Footer() {
           <p>Vendredi -Samedi: 9h30 - 17h00</p>
         </div>
       </div>
-      <div className=" flex flex-col h-full items-end justify-end gap-2 w-full sm:w-auto">
+      <div className=" flex flex-col h-full items-end justify-end  w-full md:w-auto md:gap-2">
         <div className="flex flex-col items-center w-full">
           <p className="font-MrsSaintDelafield text-4xl  ">Suivez moi:</p>
           <div className="flex gap-4 ">
@@ -61,9 +61,9 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div className="flex w-full sm:w-auto">
-          <p className="w-full sm:w-auto">copyright</p>
-          {isMobile && (
+        <div className="flex w-full md:w-auto">
+          <p className="w-full md:w-auto">copyright</p>
+          {imdobile && (
             <button type="button" onClick={scrollToTop}>
               <Image src={arrow} width={30} height={30} alt="arrow logo" />
             </button>
