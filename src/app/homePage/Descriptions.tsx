@@ -13,7 +13,7 @@ function Descriptions() {
         </div>
         <div className="flex flex-col gap-10 font-imprima text-lg">
           <div className="flex flex-col items-center">
-            <p className="mr-40 md:mr-72">
+            <p className="mr-40 sm:mr-72">
               Prendre soin de son <span className="textColor">corps</span>
             </p>
             <p>

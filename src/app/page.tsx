@@ -7,14 +7,8 @@ import Carousel from "./homePage/carousel/Carousel";
 
 function page() {
   return (
-    <div className="flex flex-col">
-      <div className="relative w-screen">
-        <Image
-          src={photoHome}
-          width={2000}
-          height={157}
-          alt="photo home page"
-        />
+    <div className="flex flex-col h-auto">
+      <div className="bg-banniere object-cover h-[410px] sm:h-[570px]">
         <h2 className="text-whiteText font-MrsSaintDelafield text-2xl absolute top-36 left-6 md:text-8xl md:absolute md:top-80 md:left-8">
           Institut Bijoux de Soins
         </h2>

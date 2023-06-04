@@ -45,7 +45,7 @@ function Prestations() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-full  bg-terracota text-whiteText">
+    <div className="flex flex-col sm:flex-row w-full h-full  bg-terracota text-whiteText">
       {categories.map((category) => (
         <div
           key={category.id}
