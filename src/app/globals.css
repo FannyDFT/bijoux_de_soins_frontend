@@ -12,6 +12,6 @@
   @apply bg-terracota text-white py-3 rounded-tl-2xl;
 }
 
-.inputConnection {
+.inputConection {
   @apply border-b border-darkText w-full bg-transparent;
 }

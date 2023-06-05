@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Login from "./Login";
 import axios from "axios";
 
+import { signupDatas } from "./signupDatas";
+import Input from "./Input";
+
 function Signup() {
   const [showLogin, setShowLogin] = useState(false);
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
@@ -55,59 +58,17 @@ function Signup() {
             </button>
           </h3>
           <form className="flex flex-col mt-12 font-imprima text-3xl w-1/3 gap-10">
-            <label htmlFor="email" className="flex flex-col">
-              E-mail{" "}
-              <input
-                type="text"
-                placeholder=""
-                className="inputConnection"
-                name="email"
-                value={form.email}
+            {signupDatas.map((item) => (
+              <Input
+                key={item.id}
+                label={item.label}
+                type={item.type}
+                name={item.name}
+                placeholder={item.placeholder}
+                value={form[item.value]}
                 onChange={handleChange}
               />
-            </label>
-
-            <label htmlFor="password" className="flex flex-col">
-              Mot de Passe
-              <input
-                type="password"
-                className="inputConnection"
-                value={form.password}
-                name="password"
-                onChange={handleChange}
-              />
-            </label>
-            <label className="flex flex-col">
-              Prénom
-              <input
-                type="text"
-                className="inputConnection"
-                name="firstname"
-                value={form.firstname}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="flex flex-col">
-              Nom
-              <input
-                type="text"
-                className="inputConnection"
-                name="lastname"
-                value={form.lastname}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="flex flex-col">
-              Téléphone
-              <input
-                type="text"
-                className="inputConnection"
-                name="phone"
-                value={form.phone}
-                onChange={handleChange}
-              />
-            </label>
-
+            ))}
             <button
               type="button"
               className="buttonConection"
