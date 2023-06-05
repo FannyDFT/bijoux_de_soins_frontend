@@ -11,6 +11,7 @@ import navigationLinks from "./navigationLinks";
 function Navbar() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,27 +27,51 @@ function Navbar() {
     setIsOpenMenu(!isOpenMenu);
   };
 
+  const handleLinkClick = (path: string) => {
+    setActiveLink(path);
+  };
+
   return (
     <div className="bg-whiteText opacity-80">
       {/*Desktop Menu*/}
       {!isMobile ? (
-        <div className="flex items-center justify-between border-b border-darkText  w-full py-5">
-          <Link href="/">
+        <div className="flex items-center justify-between border-b border-darkText  w-full py-5 ">
+          <Link href="/" onClick={() => handleLinkClick("/")}>
             <Image
               src={logoBjx}
               width={130}
               height={130}
               alt="logo bijoux de soins"
+              className={
+                activeLink === "/"
+                  ? "text-terracota hover:text-terracota"
+                  : "text-darkText"
+              }
             />
           </Link>
 
-          <div className="flex gap-10 mr-4 text-darkText font-ibarra text-2xl">
+          <div className="flex gap-10 mr-4 text-darkText font-ibarra text-2xl ">
             {navigationLinks.map((item) => (
-              <Link key={item.id} href={item.path}>
+              <Link
+                key={item.id}
+                href={item.path}
+                className={
+                  activeLink === item.path ? "text-terracota" : "text-darkText"
+                }
+                onClick={() => handleLinkClick(item.path)}
+              >
                 {item.title}
               </Link>
             ))}
-            <Link href="/signin">Connexion</Link>
+            <Link
+              href="/signin"
+              className={
+                activeLink === "/signin" ? "text-terracota" : "text-darkText"
+              }
+              onClick={() => handleLinkClick("/signin")}
+            >
+              Connexion
+            </Link>
           </div>
         </div>
       ) : (
@@ -83,6 +108,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-// changer les icones du burger menus + transition
-// mise en pages menu mobile - list style type - couleur qui change en fonction du lien cliqué

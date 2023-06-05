@@ -6,7 +6,7 @@ type CardPrestationProps = {
   personalizedText: string;
 };
 
-function CardPrestation({
+function CardPrestationDescription({
   name,
   description,
   personalizedText,
@@ -23,4 +23,4 @@ function CardPrestation({
   );
 }
 
-export default CardPrestation;
+export default CardPrestationDescription;
