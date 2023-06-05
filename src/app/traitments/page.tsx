@@ -1,7 +1,7 @@
-import React from "react";
+import ListPrestationsPage from "../components/homePage/prestations/ListPrestationsPage";
 
 function page() {
-  return <div>Prestations</div>;
+  return <ListPrestationsPage />;
 }
 
 export default page;

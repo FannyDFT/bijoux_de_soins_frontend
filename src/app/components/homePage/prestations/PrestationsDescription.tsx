@@ -1,35 +1,28 @@
 "use client";
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
-import { ICategoryService } from "../types/ICategoryServcice";
-import CardPrestation from "./CardPrestation";
 
-function Prestations() {
-  const URL = process.env.NEXT_PUBLIC_SERVER_URL;
+import { ICategoryService } from "@/app/types/ICategoryServcice";
+import { getAllCategoriesOfServices } from "@/app/service/axiosTools";
+import CardPrestationDescription from "./CardPrestationDescription";
 
+function PrestationsDescription() {
   const [categories, setCategories] = useState<ICategoryService[]>([]);
-  console.log(categories);
 
   useEffect(() => {
-    const getAllCategories = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get(`${URL}/category`);
-        if (!res) {
-          throw new Error("Nous n'avons pas pu récupérer les données");
-        }
-        const filteredCategories = res.data.filter(
-          (category: ICategoryService) =>
-            category.parentId === null && category.type === "SERVICE",
-        );
+        const filteredCategories = await getAllCategoriesOfServices();
         setCategories(filteredCategories);
       } catch (error) {
         console.log(error);
       }
     };
-    getAllCategories();
+
+    fetchData();
   }, []);
 
-  const getPersonalizedText = (name: string) => {
+  const personalizedText = (name: string) => {
     switch (name) {
       case "Epilation":
         return "Légèreté";
@@ -51,10 +44,10 @@ function Prestations() {
           key={category.id}
           className="flex-1 flex-col w-full h-full gap-4 px-8 py-10"
         >
-          <CardPrestation
+          <CardPrestationDescription
             name={category.name}
             description={category.description}
-            personalizedText={getPersonalizedText(category.name)}
+            personalizedText={personalizedText(category.name)}
           />
         </div>
       ))}
@@ -62,4 +55,4 @@ function Prestations() {
   );
 }
 
-export default Prestations;
+export default PrestationsDescription;
