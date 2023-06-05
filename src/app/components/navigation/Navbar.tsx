@@ -64,9 +64,9 @@ function Navbar() {
               </Link>
             ))}
             <Link
-              href="/signin"
+              href="/auth"
               className={
-                activeLink === "/signin" ? "text-terracota" : "text-darkText"
+                activeLink === "/auth" ? "text-terracota" : "text-darkText"
               }
               onClick={() => handleLinkClick("/signin")}
             >
@@ -100,7 +100,7 @@ function Navbar() {
               {item.title}
             </Link>
           ))}
-          {!isMobile && <Link href="/signin">Se Connecter</Link>}
+          {!isMobile && <Link href="/auth">Se Connecter</Link>}
         </div>
       )}
     </div>

@@ -7,3 +7,11 @@
 .textColor {
   @apply text-terracota;
 }
+
+.buttonConection {
+  @apply bg-terracota text-white py-3 rounded-tl-2xl;
+}
+
+.inputConnection {
+  @apply border-b border-darkText w-full bg-transparent;
+}
