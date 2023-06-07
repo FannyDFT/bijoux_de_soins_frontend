@@ -2,8 +2,8 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logoBjx from "../../../../public/assets/logoBjx.png";
-import conection from "../../../../public/assets/conection.png";
+import logoBjx from "../../../public/assets/logoBjx.png";
+import conection from "../../../public/assets/conection.png";
 import { RiCloseLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import navigationLinks from "./navigationLinks";

@@ -1,15 +1,17 @@
 "use client";
 import { AppProps } from "next/app";
-import Descriptions from "./components/homePage/Descriptions";
-import Appointment from "./components/homePage/appointments/Appointment";
-import CarouselPrestations from "./components/homePage/carousel/CarouselPrestations";
-import PrestationsDescription from "./components/homePage/prestations/PrestationsDescription";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, Navbar } from "@mantine/core";
+// import { AuthProvider } from "../src/context/AuthContext";
+import Descriptions from "@/components/homePage/Descriptions";
+import Appointment from "@/components/homePage/appointments/Appointment";
+import CarouselPrestations from "@/components/homePage/carousel/CarouselPrestations";
+import PrestationsDescription from "@/components/homePage/prestations/PrestationsDescription";
 
 function page(props: AppProps) {
   const { Component, pageProps } = props;
 
   return (
+    // <AuthProvider>
     <MantineProvider>
       <div className="flex flex-col h-auto">
         <div className="bg-banniere object-cover h-[410px] sm:h-[570px]">
@@ -23,6 +25,7 @@ function page(props: AppProps) {
         <CarouselPrestations />
       </div>
     </MantineProvider>
+    // </AuthProvider>
   );
 }
 

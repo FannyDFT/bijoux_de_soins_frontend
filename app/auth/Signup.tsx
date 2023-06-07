@@ -1,22 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Login from "./Login";
-import axios from "axios";
 
 import { signupDatas } from "./signupDatas";
 import Input from "./Input";
+import AuthContext from "../../src/context/AuthContext";
 
 function Signup() {
+  const { signup, user, setUser } = useContext(AuthContext);
   const [showLogin, setShowLogin] = useState(false);
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
-
-  const [form, setForm] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    phone: "",
-  });
 
   const handleLoginClick = () => {
     setShowLogin(true);
@@ -24,22 +17,22 @@ function Signup() {
 
   //Fonction pour récupérer la saisie de l'utilisateur
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({
-      ...form,
+    setUser({
+      ...user,
       [e.target.name]: e.target.value,
     });
   };
 
   //Fonction pour gérer la soumission du formulaire lors de son envoie
-  const handleSubmit = async () => {
-    await axios.post(`${URL}/auth/signup`, {
-      firstname: form.firstname,
-      lastname: form.lastname,
-      email: form.email,
-      password: form.password,
-      phone: form.phone,
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await signup(user);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <>
       {showLogin ? (
@@ -65,7 +58,7 @@ function Signup() {
                 type={item.type}
                 name={item.name}
                 placeholder={item.placeholder}
-                value={form[item.value]}
+                value={user[item.value]}
                 onChange={handleChange}
               />
             ))}

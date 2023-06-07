@@ -4,8 +4,8 @@ import { Carousel } from "@mantine/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllCategoriesOfServices } from "@/app/service/axiosTools";
-import { ICategoryService } from "@/app/types/ICategoryServcice";
+import { getAllCategoriesOfServices } from "../../../../app/service/axiosTools";
+import { ICategoryService } from "../../../../app/types/ICategoryServcice";
 
 function CarouselPrestations() {
   const [prestations, setPrestations] = useState<ICategoryService[]>([]);

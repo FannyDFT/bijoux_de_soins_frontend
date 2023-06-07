@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import institut from "../../../../../public/assets/institut.jpg";
+import institut from "../../../../public/assets/institut.jpg";
 
 function Appointment() {
   return (
