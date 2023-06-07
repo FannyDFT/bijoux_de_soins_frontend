@@ -1,16 +1,42 @@
 "use client";
-import React, { useContext } from "react";
 import { signupDatas } from "../signupDatas";
 import Input from "../Input";
-import { AuthContext } from "../../../src/context/AuthContext";
-import Link from "next/link";
+// import Link from "next/link";
+import axios from "axios";
+
+import { useState } from "react";
 
 function Signup() {
-  const { signup, user, setUser } = useContext(AuthContext);
-  console.log(user);
+  const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
-  const handleInputChange = (e) => {
-    setUser(e.target.value);
+  const [form, setForm] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    phone: "",
+  });
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await axios.post(`${URL}/auth/signup`, {
+        firstname: form.firstname,
+        lastname: form.lastname,
+        email: form.email,
+        password: form.password,
+        phone: form.phone,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -19,14 +45,17 @@ function Signup() {
         <h1 className="text-7xl font-ibarra">S&apos;inscrire</h1>
         <h3 className="font-imprima text-3xl">
           Déjà membre ?{" "}
-          <Link href="/auth/signin">
-            {" "}
-            <button className="textColor" type="button">
-              Se connecter
-            </button>
-          </Link>
+          {/* <Link href="/auth/signin">
+            {" "} */}
+          <button className="textColor" type="button">
+            Se connecter
+          </button>
+          {/* </Link> */}
         </h3>
-        <form className="flex flex-col mt-12 font-imprima text-3xl w-1/3 gap-10">
+        <form
+          className="flex flex-col mt-12 font-imprima text-3xl w-1/3 gap-10"
+          onSubmit={handleSubmit}
+        >
           {signupDatas.map((item) => (
             <Input
               key={item.id}
@@ -34,8 +63,8 @@ function Signup() {
               type={item.type}
               name={item.name}
               placeholder={item.placeholder}
-              value={user}
-              onChange={handleInputChange}
+              value={form[item.name]}
+              onChange={handleChangeInput}
             />
           ))}
           <button type="submit" className="buttonConection">
