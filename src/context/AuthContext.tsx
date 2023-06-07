@@ -1,56 +1,72 @@
 "use client";
-
 import axios from "axios";
-import { createContext, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 
-const AuthContext = createContext();
+type TUser = {
+  id: string;
+  email: string;
+  password: string;
+  firstname: string;
+  lastname: string;
+  phone: string;
+};
 
-export function AuthProvider({ children }) {
-  const URL = process.env.NEXT_PUBLIC_SERVER_URL;
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-    firstname: "",
-    lastname: "",
-    phone: "",
+interface IAuthContext {
+  user: TUser | null;
+  isAuth: boolean;
+  signup: (userData: TUser) => Promise<void>;
+  signin: (credentials: TCredentials) => Promise<void>;
+  signout: () => void;
+}
+
+type TCredentials = {
+  email: string;
+  password: string;
+};
+
+type AuthState = {
+  user: TUser | null;
+  isAuth: boolean;
+  isLoading: boolean;
+};
+
+const AuthContext = createContext<IAuthContext | null>(null);
+
+const AuthContextProvider = ({ children }: { children: ReactNode }) => {
+  const [authState, setAuthState] = useState<AuthState>({
+    user: null,
+    isAuth: false,
+    isLoading: true,
   });
+  const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
-  const signup = async (userData) => {
+  const signup = async (userData: TUser) => {
     try {
-      const response = await axios.post(`${URL}/auth/signup`, {
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        password: user.password,
-        phone: user.phone,
-      });
-
-      setUser(response.data);
+      const response = await axios.post(`${URL}/auth/signup`, userData);
+      setAuthState({ user: response.data, isAuth: true, isLoading: false });
     } catch (error) {
       console.log(error);
     }
-    const signin = async (userData) => {
-      try {
-        const response = await axios.post(`${URL}/auth/signin`, {
-          email: user.email,
-          password: user.password,
-        });
-        setUser(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const signout = () => {
-      setUser(null);
-    };
-
-    return (
-      <AuthContext.Provider value={{ user, setUser, signup, signin, signout }}>
-        {children}
-      </AuthContext.Provider>
-    );
   };
-}
 
-export default AuthContext;
+  const signin = async (credentials: TCredentials) => {
+    try {
+      const response = await axios.post(`${URL}/auth/signin`, credentials);
+      setAuthState({ user: response.data, isAuth: true, isLoading: false });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const signout = () => {
+    setAuthState({ user: null, isAuth: false, isLoading: false });
+  };
+
+  return (
+    <AuthContext.Provider value={{ ...authState, signup, signin, signout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export { AuthContext, AuthContextProvider };

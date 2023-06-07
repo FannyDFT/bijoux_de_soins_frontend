@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Signup from "./Signup";
+import Signup from "./signup/Signup";
 
 function Login() {
   const [showSignup, setShowSignup] = useState(false);

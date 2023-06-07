@@ -1,10 +1,10 @@
 "use client";
 import React, { useContext, useState } from "react";
-import Login from "./Login";
+import Login from "../Login";
 
-import { signupDatas } from "./signupDatas";
-import Input from "./Input";
-import AuthContext from "../../src/context/AuthContext";
+import { signupDatas } from "../signupDatas";
+import Input from "../Input";
+import AuthContext from "../../../src/context/AuthContext";
 
 function Signup() {
   const { signup, user, setUser } = useContext(AuthContext);

@@ -64,9 +64,11 @@ function Navbar() {
               </Link>
             ))}
             <Link
-              href="/auth"
+              href="/auth/signup"
               className={
-                activeLink === "/auth" ? "text-terracota" : "text-darkText"
+                activeLink === "/auth/signup"
+                  ? "text-terracota"
+                  : "text-darkText"
               }
               onClick={() => handleLinkClick("/signin")}
             >
