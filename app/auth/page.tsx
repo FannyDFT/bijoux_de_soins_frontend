@@ -1,5 +1,5 @@
 import React from "react";
-import Signup from "./signup/Signup";
+import Signup from "./signup/page";
 
 function page() {
   return <Signup />;
