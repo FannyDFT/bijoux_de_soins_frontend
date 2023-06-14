@@ -5,6 +5,7 @@ import Input from "../Input";
 import axios from "axios";
 
 import { useState } from "react";
+import Link from "next/link";
 
 function Signup() {
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
@@ -41,21 +42,17 @@ function Signup() {
 
   return (
     <>
-      <div className="flex flex-col items-center w-full h-auto justify-center gap-8">
-        <h1 className="text-7xl font-ibarra">S&apos;inscrire</h1>
-        <h3 className="font-imprima text-3xl">
+      <div className="flex flex-col h-screen items-center gap-8">
+        <h1 className="">S&apos;inscrire</h1>
+        <h3 className="">
           Déjà membre ?{" "}
-          {/* <Link href="/auth/signin">
-            {" "} */}
-          <button className="textColor" type="button">
-            Se connecter
-          </button>
-          {/* </Link> */}
+          <Link href="/auth/signin">
+            <button className="textColor" type="button">
+              Se connecter
+            </button>
+          </Link>
         </h3>
-        <form
-          className="flex flex-col mt-12 font-imprima text-3xl w-1/3 gap-10"
-          onSubmit={handleSubmit}
-        >
+        <form className="" onSubmit={handleSubmit}>
           {signupDatas.map((item) => (
             <Input
               key={item.id}

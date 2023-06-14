@@ -1,31 +1,35 @@
 "use client";
 
-import React, { useContext, useReducer, useState } from "react";
 import Link from "next/link";
-import { AuthContext } from "@/context/AuthContext";
-import { useRouter } from "next/router";
+import { useAuth } from "@/context/AuthContext";
+import { useState } from "react";
 
 function Login() {
-  const { signin } = useContext(AuthContext);
-  const [email, setEmail] = useState("");
-  const [pawwsord, setPassword] = useState("");
-  const router = useRouter();
+  const { signin } = useAuth();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await signin();
-      router.push("/");
-    } catch (error) {
-      console.log(error);
-      // Gérer les erreurs de connexion
-    }
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
   };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    signin(credentials);
+    router.push("/");
+  };
+
   return (
     <>
-      <div className="flex flex-col items-center w-fullh-screen h-screen justify-center gap-10">
-        <h1 className="text-7xl font-ibarra">Se connecter</h1>
-        <h3 className="font-imprima text-3xl">
+      <div className="">
+        <h1 className="">Se connecter</h1>
+        <h3 className="">
           Vous êtes nouveau ici ?{" "}
           <Link href="/auth/signup">
             <button className="textColor" type="button">
@@ -33,14 +37,21 @@ function Login() {
             </button>
           </Link>
         </h3>
-        <form
-          className="flex flex-col gap-10 font-imprima text-3xl"
-          onSubmit={handleLogin}
-        >
+        <form className="" onSubmit={handleSubmit}>
           <label>E-mail</label>
-          <input type="text" />
+          <input
+            type="text"
+            name="email"
+            value={credentials.email}
+            onChange={handleChange}
+          />
           <label>Mot de Passe</label>
-          <input type="password" />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+          />
           <button type="submit" className="buttonConection">
             Se connecter
           </button>

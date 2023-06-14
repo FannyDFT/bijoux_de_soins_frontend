@@ -6,9 +6,9 @@ function Descriptions() {
       <div className="w-2/3 flex flex-col gap-10 ">
         <div className="flex items-center gap-4 ">
           <hr className="w-10 border-1 border-darkText" />
-          <h3 className="font-ibarra text-4xl ">L&apos;institut</h3>
+          <h3 className="font-ibarra text-3xl ">L&apos;institut</h3>
         </div>
-        <div className="flex flex-col gap-10 font-imprima text-lg">
+        <div className="flex flex-col gap-10 font-imprima text-sm">
           <div className="flex flex-col items-center">
             <p className="mr-40 sm:mr-72">
               Prendre soin de son <span className="textColor">corps</span>

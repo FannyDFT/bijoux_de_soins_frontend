@@ -35,12 +35,12 @@ function Navbar() {
     <div className="bg-whiteText opacity-80">
       {/*Desktop Menu*/}
       {!isMobile ? (
-        <div className="flex items-center justify-between border-b border-darkText  w-full py-5 ">
+        <div className="flex items-center justify-between border-b border-darkText  w-full py-3 ">
           <Link href="/" onClick={() => handleLinkClick("/")}>
             <Image
               src={logoBjx}
-              width={130}
-              height={130}
+              width={100}
+              height={100}
               alt="logo bijoux de soins"
               className={
                 activeLink === "/"
@@ -50,7 +50,7 @@ function Navbar() {
             />
           </Link>
 
-          <div className="flex gap-10 mr-4 text-darkText font-ibarra text-2xl ">
+          <div className="flex gap-10 mr-4 text-darkText font-ibarra text-1xl ">
             {navigationLinks.map((item) => (
               <Link
                 key={item.id}
@@ -80,8 +80,8 @@ function Navbar() {
         <div className="flex items-center justify-between p-4">
           <div>
             <Link href="/signin" className="flex items-center gap-2">
-              <Image src={conection} width={42} height={42} alt="50" />
-              <p>Se Connecter</p>
+              <Image src={conection} width={35} height={35} alt="50" />
+              <p >Se Connecter</p>
             </Link>
           </div>
           <button
@@ -89,16 +89,16 @@ function Navbar() {
             onClick={toggleMenu}
             className="h-16 w-10 text-terracota"
           >
-            {isOpenMenu ? <RiCloseLine /> : <CiMenuBurger />}
+            {isOpenMenu ? <RiCloseLine className="text-3xl"/> : <CiMenuBurger className="text-3xl"/>}
           </button>
         </div>
       )}
       {/*Mobile Menu*/}
       {isMobile && isOpenMenu && (
         <div className="flex flex-col gap-4 pl-16 font-ibarra text-xl absolute bg-white w-full h-52 ">
-          <Link href="/">Accueil</Link>
+          <Link href="/" onClick={toggleMenu}>Accueil</Link>
           {navigationLinks.map((item) => (
-            <Link key={item.id} href={item.path}>
+            <Link key={item.id} href={item.path} onClick={toggleMenu}>
               {item.title}
             </Link>
           ))}

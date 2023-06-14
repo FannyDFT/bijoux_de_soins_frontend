@@ -2,26 +2,8 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { TUSER } from "../../app/types/TUser";
+import { Router } from "next/router";
 
-// type AuthContextType = {
-//   user: TUSER;
-//   setUser: React.Dispatch<React.SetStateAction<TUSER>>;
-//   signup: () => Promise<void>;
-//   signin: () => Promise<void>;
-//   signout: () => void;
-// };
-// export const AuthContext = createContext<AuthContextType>({
-//   user: {
-//     email: "",
-//     password: "",
-//     firstname: "",
-//     lastname: "",
-//     phone: "",
-//   },
-//   setUser: () => null,
-//   signup: () => Promise.resolve(),
-//   signin: () => Promise.resolve(),
-//   signout: () => null,
 type TCredentials = {
   email: string;
   password: string;
@@ -30,8 +12,8 @@ type TCredentials = {
 interface IUserContext {
   user: TUSER | null;
   isAuth: boolean;
-  signIn: (credentials: TCredentials) => Promise<void>;
-  signOut: () => Promise<void>;
+  signin: (credentials: TCredentials) => Promise<void>;
+  signout: () => Promise<void>;
 }
 
 const AuthContext = createContext<IUserContext | null>(null);
@@ -51,47 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     isLoading: true,
   });
 
-  // const [user, setUser] = useState<TUSER>({
-  //   email: "",
-  //   password: "",
-  //   firstname: "",
-  //   lastname: "",
-  //   phone: "",
-  // });
-
-  // const signup = async () => {
-  //   try {
-  //     const response = await axios.post(`${URL}/auth/signup`, {
-  //       firstname: user?.firstname,
-  //       lastname: user?.lastname,
-  //       email: user?.email,
-  //       password: user?.password,
-  //       phone: user?.phone,
-  //     });
-
-  //     setUser(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const signin = async () => {
-  //   try {
-  //     const response = await axios.post(`${URL}/auth/signin`, {
-  //       email: user?.email,
-  //       password: user?.password,
-  //     });
-
-  //     setUser(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const signout = () => {
-  //   setUser(null);
-  // };
-  const signIn = async ({ email, password }: TCredentials) => {
+  const signin = async ({ email, password }: TCredentials) => {
     try {
       const { data, headers } = await axios.post(`${URL}/auth/signin`, {
         email,
@@ -106,7 +48,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const signOut = async () => {
+  const signout = async () => {
     setAuthState({ user: null, isAuth: false, isLoading: false });
     localStorage.removeItem("token");
     axios.defaults.headers.common.authorization = "";
@@ -150,8 +92,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       value={{
         user: authState.user,
         isAuth: authState.isAuth,
-        signIn,
-        signOut,
+        signin,
+        signout,
       }}
     >
       {authState.isLoading ? "Loading ..." : children}

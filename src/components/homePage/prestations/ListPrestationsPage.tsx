@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ICategoryService } from "../../../types/ICategoryServcice";
+import { ICategoryService } from "../../../../app/types/ICategoryServcice"
 
 import CardPrestationPage from "./CardPrestationPage";
 

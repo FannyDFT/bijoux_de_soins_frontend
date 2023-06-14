@@ -28,7 +28,7 @@ function Footer() {
   };
 
   return (
-    <div className="h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-md font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-xl ">
+    <div className="h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-xs font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-sm ">
       <div className="flex flex-col gap-1 text-center">
         <p>14 rue Colombet Solle</p>
         <p>42 270 Saint-Just-Saint-Rambert</p>

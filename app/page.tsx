@@ -1,23 +1,24 @@
 "use client";
 import { AppProps } from "next/app";
-import { MantineProvider, Navbar } from "@mantine/core";
-// import { AuthProvider } from "../src/context/AuthContext";
+import { MantineProvider } from "@mantine/core";
+
 import Descriptions from "@/components/homePage/Descriptions";
 import Appointment from "@/components/homePage/appointments/Appointment";
 import CarouselPrestations from "@/components/homePage/carousel/CarouselPrestations";
 import PrestationsDescription from "@/components/homePage/prestations/PrestationsDescription";
+import photoHome from "../public/assets/photoHome.png"
+import Image from "next/image";
 
 function page(props: AppProps) {
   const { Component, pageProps } = props;
 
   return (
-    // <AuthProvider>
+    
     <MantineProvider>
       <div className="flex flex-col h-auto">
-        <div className="bg-banniere object-cover h-[410px] sm:h-[570px]">
-          <h2 className="text-whiteText font-MrsSaintDelafield text-2xl absolute top-36 left-6 md:text-8xl md:absolute md:top-80 md:left-8">
-            Institut Bijoux de Soins
-          </h2>
+        <div >
+         <Image src={photoHome} width={1000} height={300} alt="photo home" className="w-full h-auto"/>
+        {/* <h2 className="font-MrsSaintDelafield text-white">Institut Bijoux de Soins</h2> */}
         </div>
         <Descriptions />
         <PrestationsDescription />
@@ -25,7 +26,7 @@ function page(props: AppProps) {
         <CarouselPrestations />
       </div>
     </MantineProvider>
-    // </AuthProvider>
+    
   );
 }
 

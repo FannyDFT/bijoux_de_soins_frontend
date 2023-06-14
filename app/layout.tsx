@@ -19,10 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <AuthProvider>
         <Navbar />
-        <AuthProvider>{children}</AuthProvider>
+        {children}
         <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
 }
+
+//Vérifier pour le AuthProvider s'il est à la bonne place 

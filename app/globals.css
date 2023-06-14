@@ -15,3 +15,11 @@
 .inputConection {
   @apply border-b border-darkText w-full bg-transparent;
 }
+
+.contact {
+  @apply font-MrsSaintDelafield text-6xl text-terracota
+}
+
+.labelContact {
+  @apply flex flex-col
+}
