@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Ibarra+Real+Nova&family=Imprima&family=Mrs+Saint+Delafield&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.textColor {
+  @apply text-terracota;
+}
+
+.buttonConection {
+  @apply bg-terracota text-white py-3 rounded-tl-2xl;
+}
+
+.inputConection {
+  @apply border-b border-darkText w-full bg-transparent;
+}
+
+.contact {
+  @apply font-MrsSaintDelafield text-6xl text-terracota
+}
+
+.labelContact {
+  @apply flex flex-col
+}

@@ -1,9 +1,0 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Ibarra+Real+Nova&family=Imprima&family=Mrs+Saint+Delafield&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.textColor {
-  @apply text-terracota;
-}
