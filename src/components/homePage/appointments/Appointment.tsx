@@ -6,7 +6,7 @@ import institut from "../../../../public/assets/institut.jpg";
 function Appointment() {
   return (
     <div className="h-96 flex flex-col-reverse  justify-between px-0 font-ibarra text-2xl text-darkText bg-background opacity-80 sm:flex sm:flex-row sm:px-48 ">
-      <div className=" flex flex-col items-center sm:flex sm:items-start pb-6 sm:pt-14 text-lg sm:text-md">
+      <div className=" flex flex-col items-center sm:flex sm:items-start pb-6 sm:pt-14 text-xl sm:text-md">
         <p className="mb-8 font-ibarra">Pour une parenthèse de bien-être</p>
         <Link href="/appointments">
           <button

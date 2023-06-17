@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Prestation = {
   name: string;
@@ -9,7 +10,9 @@ type Prestation = {
 function CardPrestationPage({ name, image, description }: Prestation) {
   return (
     <div className="flex flex-col border border-1 border-darkText rounded-lg h-full gap-6 bg-beige">
-      <Image
+     
+     
+     <Image
         src={image}
         width={378}
         height={231}
@@ -20,6 +23,7 @@ function CardPrestationPage({ name, image, description }: Prestation) {
         <h2>{name}</h2>
         <p>{description}</p>
       </div>
+      
     </div>
   );
 }

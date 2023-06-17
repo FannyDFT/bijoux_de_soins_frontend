@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 function Login() {
   const { signin } = useAuth();
+  // const router = useRouter()
 
   const [credentials, setCredentials] = useState({
     email: "",
@@ -19,17 +21,15 @@ function Login() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    signin(credentials);
-    router.push("/");
-  };
 
   return (
-    <>
-      <div className="">
-        <h1 className="">Se connecter</h1>
-        <h3 className="">
+    <div className="w-full h-screen">
+      <div className="w-full h-screen flex flex-col items-center justify-center gap-10">
+        <div className="w-full flex justify-center" >
+          <h1 className="text-3xl font-ibarra">Se connecter</h1>
+        </div>
+        <div className="w-full flex justify-center" >
+        <h3 className="text-xl font-imprima">
           Vous êtes nouveau ici ?{" "}
           <Link href="/auth/signup">
             <button className="textColor" type="button">
@@ -37,27 +37,42 @@ function Login() {
             </button>
           </Link>
         </h3>
-        <form className="" onSubmit={handleSubmit}>
+      </div>
+       <div className="w-full flex justify-center">
+       <div className="flex flex-col gap-6 text-xl font-imprima" >
+          <div className="flex flex-col gap-6">
           <label>E-mail</label>
           <input
+            className="inputConection"
             type="text"
             name="email"
             value={credentials.email}
             onChange={handleChange}
+            placeholder=""
           />
-          <label>Mot de Passe</label>
+          </div>
+          <div className="flex flex-col gap-6"> 
+            <label>Mot de Passe</label>
           <input
+            className="inputConection"
             type="password"
             name="password"
             value={credentials.password}
             onChange={handleChange}
-          />
-          <button type="submit" className="buttonConection">
+            placeholder=""
+          /></div>
+         <Link href="/">
+         <button type="button" className="buttonConection px-8" onClick={() => signin(credentials)}>
             Se connecter
-          </button>
-        </form>
+          </button></Link>
+        
+          
+        </div>
+       </div>
+        
+      
       </div>
-    </>
+    </div>
   );
 }
 

@@ -41,18 +41,24 @@ function Signup() {
   };
 
   return (
-    <>
-      <div className="flex flex-col h-screen items-center gap-8">
-        <h1 className="">S&apos;inscrire</h1>
-        <h3 className="">
-          Déjà membre ?{" "}
+    <div className="w-full h-screen">
+      <div className="w-full h-screen flex flex-col items-center justify-center gap-6">
+        <div className="text-3xl font-ibarra">
+        <h1 >S&apos;inscrire</h1>
+        </div>
+       <div className="w-full flex justify-center">
+       <h3 className="text-xl font-imprima">
+          Déjà membre ? {" "}
           <Link href="/auth/signin">
             <button className="textColor" type="button">
               Se connecter
             </button>
           </Link>
         </h3>
-        <form className="" onSubmit={handleSubmit}>
+       </div>
+        
+      <div className="w-full flex flex-col gap-6 items-center font-imprima text-xl" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4">
           {signupDatas.map((item) => (
             <Input
               key={item.id}
@@ -64,12 +70,15 @@ function Signup() {
               onChange={handleChangeInput}
             />
           ))}
-          <button type="submit" className="buttonConection">
-            S&apos;inscrire
-          </button>
+          <Link href="/auth/signin">
+          <button type="button" className="buttonConection flex w-full justify-center" onClick={handleSubmit}>
+          S&apos;inscrire
+        </button></Link>
+          
         </form>
       </div>
-    </>
+       </div>  
+    </div>
   );
 }
 
