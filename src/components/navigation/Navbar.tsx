@@ -7,11 +7,16 @@ import conection from "../../../public/assets/conection.png";
 import { RiCloseLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import navigationLinks from "./navigationLinks";
+import { useAuth } from "../../context/AuthContext";
 
 function Navbar() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+
+  const { user, isAuth } = useAuth()
+  console.log(user);
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,7 +55,7 @@ function Navbar() {
             />
           </Link>
 
-          <div className="flex gap-10 mr-4 text-darkText font-ibarra text-1xl ">
+          <div className="flex gap-10 mr-4 text-darkText font-ibarra text-2xl ">
             {navigationLinks.map((item) => (
               <Link
                 key={item.id}
@@ -63,7 +68,7 @@ function Navbar() {
                 {item.title}
               </Link>
             ))}
-            <Link
+            {isAuth ? <p className="text-terracota">Bonjour {user?.firstname}</p> : <Link
               href="/auth/signup"
               className={
                 activeLink === "/auth/signup"
@@ -73,7 +78,8 @@ function Navbar() {
               onClick={() => handleLinkClick("/signin")}
             >
               Connexion
-            </Link>
+            </Link>}
+            
           </div>
         </div>
       ) : (
