@@ -1,19 +1,20 @@
-"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Carousel } from "@mantine/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllCategoriesOfServices } from "../../../../app/service/axiosTools";
+import { getAll } from "../../../../app/service/axiosTools";
 import { ICategoryService } from "../../../../app/types/ICategoryServcice";
 
 function CarouselPrestations() {
   const [prestations, setPrestations] = useState<ICategoryService[]>([]);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const filteredPrestations = await getAllCategoriesOfServices();
+        const data = await getAll();
+        const filteredPrestations = data.services;
         setPrestations(filteredPrestations);
       } catch (error) {
         console.log(error);
@@ -22,7 +23,7 @@ function CarouselPrestations() {
 
     fetchData();
   }, []);
-
+  
   const autoplay = useRef(Autoplay({ delay: 2000 }));
 
   return (
