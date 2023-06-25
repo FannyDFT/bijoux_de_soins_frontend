@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { TUSER } from "../../app/types/TUser";
+import { TUSER } from "../types/TUser";
 import { Router } from "next/router";
 
 type TCredentials = {

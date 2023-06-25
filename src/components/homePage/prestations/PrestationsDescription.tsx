@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
-import { ICategoryService } from "../../../../app/types/ICategoryServcice";
-import { getAll} from "../../../../app/service/axiosTools";
+import { ICategoryService } from "../../../types/ICategoryServcice";
+import { getAll } from "../../../../app/service/axiosTools";
 import CardPrestationDescription from "./CardPrestationDescription";
 
 function PrestationsDescription() {

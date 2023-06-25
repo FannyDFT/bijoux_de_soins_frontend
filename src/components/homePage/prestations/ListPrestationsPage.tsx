@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ICategoryService } from "../../../../app/types/ICategoryServcice";
-import CardPrestationPage from "./CardPrestationPage";
+import { ICategoryService } from "../../../types/ICategoryServcice";
 import { getAll } from "../../../../app/service/axiosTools";
 import ListProductsPage from "./ListProductsPage";
 import Link from "next/link";
@@ -36,7 +35,7 @@ function ListPrestationsPage() {
             className="flex flex-col flex-1 bg-beige h-1/2 gap-6 rounded-t-lg border border-1 border-darkText mx-6"
           >
             {item.id === "7e457b03-8ba8-4760-a6e9-9edb1b898bc4" && (
-              <Link href="/waxingPrice">
+              <Link href="/traitments/waxingPrice">
                 <Image
                   src={item.image}
                   width={330}
@@ -54,7 +53,7 @@ function ListPrestationsPage() {
             )}
 
             {item.id === "efe2bca2-8877-4f60-91d3-0a40ab18514f" && (
-              <Link href="/beautyTreatmentsPrice">
+              <Link href="/traitments/beautyTreatmentsPrice">
                 <Image
                   src={item.image}
                   width={330}
@@ -72,7 +71,7 @@ function ListPrestationsPage() {
             )}
 
             {item.id === "ac50566a-a6e6-41f2-98e4-50c849badcba" && (
-              <Link href="/nailServicesPricesPage">
+              <Link href="/traitments/nailServicesPricesPage">
                 <Image
                   src={item.image}
                   width={330}
@@ -90,7 +89,7 @@ function ListPrestationsPage() {
             )}
 
             {item.id === "f5aa067b-1c82-4d62-8da6-76a62c5eac8b" && (
-              <Link href="/browAndLashColoringPricesPage">
+              <Link href="/traitments/browAndLashColoringPricesPage">
                 <Image
                   src={item.image}
                   width={330}

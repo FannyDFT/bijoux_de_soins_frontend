@@ -4,11 +4,10 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
 import { getAll } from "../../../../app/service/axiosTools";
-import { ICategoryService } from "../../../../app/types/ICategoryServcice";
+import { ICategoryService } from "../../../types/ICategoryServcice";
 
 function CarouselPrestations() {
   const [prestations, setPrestations] = useState<ICategoryService[]>([]);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +22,7 @@ function CarouselPrestations() {
 
     fetchData();
   }, []);
-  
+
   const autoplay = useRef(Autoplay({ delay: 2000 }));
 
   return (
