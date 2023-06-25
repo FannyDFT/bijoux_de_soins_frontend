@@ -35,7 +35,7 @@ export const getAll = async () => {
       }
     };
 
-    const getServicesByCategory = async (categoryId) => {
+    const getServicesByCategory = async (categoryId: string) => {
       try {
         const res = await axios.get(`${URL}/service?categoryId=${categoryId}`);
 

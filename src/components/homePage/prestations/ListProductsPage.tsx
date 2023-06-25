@@ -6,8 +6,15 @@ import { getAll } from "../../../../app/service/axiosTools";
 import CardProductPage from "./CardProductPage";
 import { Carousel } from "@mantine/carousel";
 
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+}
+
 function ListProductsPage() {
-  const [productsCategories, setProductsCategories] = useState([]);
+  const [productsCategories, setProductsCategories] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
