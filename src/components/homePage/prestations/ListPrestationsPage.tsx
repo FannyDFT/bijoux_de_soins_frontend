@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { ICategoryService } from "../../../types/ICategoryServcice";
-import { getAll } from "../../../../app/service/axiosTools";
-import ListProductsPage from "./ListProductsPage";
+import { getAll } from "../../../service/axiosTools";
+// import ListProductsPage from "./ListProductsPage";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -108,7 +108,7 @@ function ListPrestationsPage() {
           </div>
         ))}
       </div>
-      <ListProductsPage />
+      {/* <ListProductsPage /> */}
     </>
   );
 }

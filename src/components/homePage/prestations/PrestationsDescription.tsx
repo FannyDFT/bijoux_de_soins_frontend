@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { ICategoryService } from "../../../types/ICategoryServcice";
-import { getAll } from "../../../../app/service/axiosTools";
+import { getAll } from "../../../service/axiosTools";
 import CardPrestationDescription from "./CardPrestationDescription";
 
 function PrestationsDescription() {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ICategoryService } from "../../src/types/ICategoryServcice";
+import { ICategoryService } from "../types/ICategoryServcice";
 
 const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
