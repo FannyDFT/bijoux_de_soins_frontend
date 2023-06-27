@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
-import { ICategoryService } from "../../../../app/types/ICategoryServcice";
-import { getAllCategoriesOfServices } from "../../../../app/service/axiosTools";
+import { ICategoryService } from "../../../types/ICategoryServcice";
+import { getAll } from "../../../service/axiosTools";
 import CardPrestationDescription from "./CardPrestationDescription";
 
 function PrestationsDescription() {
@@ -12,8 +12,9 @@ function PrestationsDescription() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const filteredCategories = await getAllCategoriesOfServices();
-        setCategories(filteredCategories);
+        const data = await getAll();
+        const filteredPrestations = data.services;
+        setCategories(filteredPrestations);
       } catch (error) {
         console.log(error);
       }

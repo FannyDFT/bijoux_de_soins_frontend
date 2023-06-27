@@ -15,7 +15,7 @@ function Navbar() {
   const [activeLink, setActiveLink] = useState("");
 
   const { user, isAuth } = useAuth()
-  console.log(user);
+ 
   
 
   useEffect(() => {
