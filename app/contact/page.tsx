@@ -43,7 +43,7 @@ function Contact() {
               className="contact labelContact inputConection"
             >
               <textarea
-                className="inputConection"
+                className="inputConection p-4"
                 defaultValue="Message"
               ></textarea>
             </label>
