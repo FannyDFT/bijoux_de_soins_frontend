@@ -1,4 +1,4 @@
-export interface IServicesData {
+export interface IServicesWaxing {
   id: string;
   name: string;
   duration: string;

@@ -1,22 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { getAll } from "../../../src/service/axiosTools";
-import { IServicesData } from "../../../src/types/IServicesData";
+import { IServicesWaxing } from "../../../src/types/IServicesData";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
-import Link from "next/link";
 
 function WaxingPrice() {
   const [servicesData, setServicesData] = useState<{
-    faceServicesData: Array<IServicesData>;
-    bodyServicesData: Array<IServicesData>;
-    forfaitServicesData: Array<IServicesData>;
+    faceServicesData: Array<IServicesWaxing>;
+    bodyServicesData: Array<IServicesWaxing>;
+    forfaitServicesData: Array<IServicesWaxing>;
   }>({
     faceServicesData: [],
     bodyServicesData: [],
     forfaitServicesData: [],
   });
-  const [activeLink, setActiveLink] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
