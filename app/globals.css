@@ -17,9 +17,9 @@
 }
 
 .contact {
-  @apply font-MrsSaintDelafield text-6xl text-terracota
+  @apply font-MrsSaintDelafield text-4xl text-terracota;
 }
 
 .labelContact {
-  @apply flex flex-col
+  @apply flex flex-col;
 }

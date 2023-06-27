@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
 
 function Login() {
   const { signin } = useAuth();
-  // const router = useRouter()
 
   const [credentials, setCredentials] = useState({
     email: "",
