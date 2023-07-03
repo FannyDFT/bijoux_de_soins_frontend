@@ -75,7 +75,7 @@ function WaxingPrice() {
                 <p className="flex-1 text-terracota text-lg">{service.name}</p>
 
                 <div className="flex flex-1 gap-4 justify-center">
-                  <p>{service.duration}</p>
+                  <p>{service.duration}&apos;</p>
                   <Image src={time} width={30} height={30} alt="time" />
                 </div>
 
@@ -103,7 +103,7 @@ function WaxingPrice() {
                 <p className="flex-1 text-terracota text-lg">{service.name}</p>
 
                 <div className="flex flex-1 gap-4 justify-center">
-                  <p>{service.duration}</p>
+                  <p>{service.duration}&apos;</p>
                   <Image src={time} width={30} height={30} alt="time" />
                 </div>
 
@@ -131,7 +131,7 @@ function WaxingPrice() {
                 <p className="flex-1 text-terracota text-lg">{service.name}</p>
 
                 <div className="flex flex-1 gap-4 justify-center">
-                  <p>{service.duration}</p>
+                  <p>{service.duration}&apos;</p>
                   <Image src={time} width={30} height={30} alt="time" />
                 </div>
 
@@ -142,54 +142,6 @@ function WaxingPrice() {
             ))}
           </div>
         </div>
-        {/* <div className=" w-full flex flex-col gap-10 ">
-          <div className="flex justify-center">
-            <h4 id="corps">Epicaltions Corps</h4>
-          </div>
-          <div className="flex flex-col gap-2">
-            {servicesData.bodyServicesData.map((service) => (
-              <div
-                key={service.id}
-                className="flex justify-between flex-1 border-b-2 border-black"
-              >
-                <p className="flex-1">{service.name}</p>
-                <div className="flex flex-1">
-                  <p>
-                    {service.duration}
-                    {"'"}
-                  </p>
-                  <Image src={time} width={30} height={30} alt="time" />
-                </div>
-
-                <p className="flex-1">{service.price}€</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
-        {/* <div className="flex flex-col gap-10 ">
-          <div className="flex justify-center">
-            <h4 id="forfait">Forfaits Epilations</h4>
-          </div>
-          <div className="flex flex-col gap-2">
-            {servicesData.forfaitServicesData.map((service) => (
-              <div
-                key={service.id}
-                className="flex justify-between flex-1 border-b-2 border-black"
-              >
-                <p className="flex-1">{service.name}</p>
-                <div className="flex flex-1">
-                  <p>
-                    {service.duration}
-                    {"'"}
-                  </p>
-                  <Image src={time} width={30} height={30} alt="time" />
-                </div>
-
-                <p className="flex-1">{service.price}€</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
     </div>
   );

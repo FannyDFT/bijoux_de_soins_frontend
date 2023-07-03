@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { ICategoryService } from "../../../types/ICategoryServcice";
 import { getAll } from "../../../service/axiosTools";
-// import ListProductsPage from "./ListProductsPage";
 import Link from "next/link";
 import Image from "next/image";
+import soins from "../../../../public/assets/soins.png";
 
 function ListPrestationsPage() {
   const [prestations, setPrestations] = useState<ICategoryService[]>([]);
@@ -15,7 +15,6 @@ function ListPrestationsPage() {
       try {
         const data = await getAll();
         const filteredPrestations = data.services;
-        console.log(filteredPrestations);
 
         setPrestations(filteredPrestations);
       } catch (error) {
@@ -27,7 +26,7 @@ function ListPrestationsPage() {
   }, []);
 
   return (
-    <div className="flex justify-center my-10">
+    <div className="flex justify-center py-10 bg-background">
       {prestations.map((item) => (
         <div
           key={item.id}
@@ -52,7 +51,7 @@ function ListPrestationsPage() {
           {item.id === "efe2bca2-8877-4f60-91d3-0a40ab18514f" && (
             <Link href="/traitments/beautyTreatmentsPrice">
               <Image
-                src={item.image}
+                src={soins}
                 width={330}
                 height={200}
                 alt={item.name}

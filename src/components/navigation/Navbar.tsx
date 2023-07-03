@@ -14,9 +14,7 @@ function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeLink, setActiveLink] = useState("");
 
-  const { user, isAuth } = useAuth()
- 
-  
+  const { user, isAuth } = useAuth();
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,9 +46,7 @@ function Navbar() {
               height={100}
               alt="logo bijoux de soins"
               className={
-                activeLink === "/"
-                  ? "text-terracota hover:text-terracota"
-                  : "text-darkText"
+                activeLink === "/" ? "text-terracota " : "text-darkText"
               }
             />
           </Link>
@@ -60,26 +56,27 @@ function Navbar() {
               <Link
                 key={item.id}
                 href={item.path}
-                className={
-                  activeLink === item.path ? "text-terracota" : "text-darkText"
-                }
+                className="hover:text-terracota"
                 onClick={() => handleLinkClick(item.path)}
               >
                 {item.title}
               </Link>
             ))}
-            {isAuth ? <p className="text-terracota">Bonjour {user?.firstname}</p> : <Link
-              href="/auth/signup"
-              className={
-                activeLink === "/auth/signup"
-                  ? "text-terracota"
-                  : "text-darkText"
-              }
-              onClick={() => handleLinkClick("/signin")}
-            >
-              Connexion
-            </Link>}
-            
+            {isAuth ? (
+              <p className="text-terracota">Bonjour {user?.firstname}</p>
+            ) : (
+              <Link
+                href="/auth/signup"
+                className={
+                  activeLink === "/auth/signup"
+                    ? "text-terracota"
+                    : "text-darkText"
+                }
+                onClick={() => handleLinkClick("/signin")}
+              >
+                Connexion
+              </Link>
+            )}
           </div>
         </div>
       ) : (
@@ -87,7 +84,7 @@ function Navbar() {
           <div>
             <Link href="/signin" className="flex items-center gap-2">
               <Image src={conection} width={35} height={35} alt="50" />
-              <p >Se Connecter</p>
+              <p>Se Connecter</p>
             </Link>
           </div>
           <button
@@ -95,14 +92,20 @@ function Navbar() {
             onClick={toggleMenu}
             className="h-16 w-10 text-terracota"
           >
-            {isOpenMenu ? <RiCloseLine className="text-3xl"/> : <CiMenuBurger className="text-3xl"/>}
+            {isOpenMenu ? (
+              <RiCloseLine className="text-3xl" />
+            ) : (
+              <CiMenuBurger className="text-3xl" />
+            )}
           </button>
         </div>
       )}
       {/*Mobile Menu*/}
       {isMobile && isOpenMenu && (
         <div className="flex flex-col gap-4 pl-16 font-ibarra text-xl absolute bg-white w-full h-52 ">
-          <Link href="/" onClick={toggleMenu}>Accueil</Link>
+          <Link href="/" onClick={toggleMenu}>
+            Accueil
+          </Link>
           {navigationLinks.map((item) => (
             <Link key={item.id} href={item.path} onClick={toggleMenu}>
               {item.title}

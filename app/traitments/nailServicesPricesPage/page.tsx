@@ -23,8 +23,6 @@ function NailServicesPricesPage() {
     beautyFeet: { name: "", image: "" },
   });
 
-  console.log(servicesData.beautyMain.name);
-
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAll();
