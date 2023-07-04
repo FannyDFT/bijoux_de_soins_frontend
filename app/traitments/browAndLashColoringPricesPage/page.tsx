@@ -41,11 +41,11 @@ function BrowAndLashColoringPricesPage() {
 
   return (
     <div className="w-full flex flex-col bg-background">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-4xl font-ibarra">
+      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-4xl font-ibarra">
         Coloration des Cils & Sourcils
       </h2>
 
-      <div className="flex w-full items-center px-9 py-20 gap-6">
+      <div className="flex flex-col  sm:flex-row w-full items-center px-9 py-20 gap-10 sm:gap-6">
         <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg">
           {eyesBrow && (
             <div className="flex flex-col w-full items-center gap-10 font-ibarra">
@@ -56,11 +56,13 @@ function BrowAndLashColoringPricesPage() {
                 alt={eyesBrow.name}
                 className="w-full rounded-lg border border-1 border-darkText"
               />
-              <h2 className="text-terracota text-xl w-full flex justify-center">
+              <h2 className="text-terracota text-3xl sm:text-xl w-full flex justify-center">
                 {eyesBrow.name}
               </h2>
-              <p className="text-lg text-center px-5">{eyesBrow.description}</p>
-              <div className="flex w-full justify-between px-5 pb-5 text-lg">
+              <p className="text-2xl sm:text-lg text-center px-5">
+                {eyesBrow.description}
+              </p>
+              <div className="flex w-full justify-between px-5 pb-5 text-2xl sm:text-lg">
                 <p>{formatPrice(eyesBrow.price)}€</p>
                 <div className="flex gap-1 items-center ">
                   <p>{eyesBrow.duration}&apos;</p>
@@ -70,7 +72,7 @@ function BrowAndLashColoringPricesPage() {
             </div>
           )}
         </div>
-        <div className="flex-1 font-imprima text-center text-lg text-terracota">
+        <div className="flex-1 font-imprima text-center text-2xl sm:text-lg text-terracota">
           <p className="px-4">
             La coloration des sourcils & des cils est la solution idéale pour
             avoir l&apos;air maquillé sans le moindre effort. Ce soin express
@@ -89,11 +91,13 @@ function BrowAndLashColoringPricesPage() {
                 alt={eyesLash.name}
                 className="w-full rounded-lg border border-1 border-darkText"
               />
-              <h2 className="text-terracota text-xl w-full flex justify-center">
+              <h2 className="text-terracota text-3xl sm:text-xl w-full flex justify-center">
                 {eyesLash.name}
               </h2>
-              <p className="text-lg text-center px-5">{eyesLash.description}</p>
-              <div className="flex w-full justify-between px-5 pb-5 text-lg">
+              <p className="text-2xl sm:text-lg text-center px-5">
+                {eyesLash.description}
+              </p>
+              <div className="flex w-full justify-between px-5 pb-5 text-2xl sm:text-lg">
                 <p>{formatPrice(eyesLash.price)}€</p>
                 <div className="flex gap-1 items-center ">
                   <p>{eyesLash.duration}&apos;</p>

@@ -11,7 +11,7 @@ function Appointment() {
         <Link href="/appointments">
           <button
             type="button"
-            className="border border-solid border-terracota border-1 text-terracota px-4 py-2 font-imprima"
+            className="border border-solid border-terracota border-1 text-terracota px-4 py-2 font-imprima hover:bg-terracota hover:text-white"
           >
             Prendre Rendez-vous
           </button>

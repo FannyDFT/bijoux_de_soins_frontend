@@ -26,11 +26,11 @@ function ListPrestationsPage() {
   }, []);
 
   return (
-    <div className="flex justify-center py-10 bg-background">
+    <div className="py-10 gap-10 sm:gap-0 bg-background flex flex-col sm:flex-row justify-center">
       {prestations.map((item) => (
         <div
           key={item.id}
-          className="flex flex-col flex-1 bg-beige h-1/2 gap-6 rounded-t-lg border border-1 border-darkText mx-6"
+          className="flex flex-col flex-1 bg-beige h-1/2 gap-6 rounded-t-lg border border-1 border-darkText mx-6 hover:scale-105 transition-transform duration-300"
         >
           {item.id === "7e457b03-8ba8-4760-a6e9-9edb1b898bc4" && (
             <Link href="/traitments/waxingPrice">
@@ -39,11 +39,15 @@ function ListPrestationsPage() {
                 width={330}
                 height={300}
                 alt={item.name}
-                className="rounded-t-lg"
+                className="rounded-t-lg w-full"
               />
               <div className="px-6 py-6 flex flex-col gap-6">
-                <h2 className="font-MrsSaintDelafield text-3xl">{item.name}</h2>
-                <p className="font-imprima text-base">{item.description}</p>
+                <h2 className="font-MrsSaintDelafield text-4xl sm:text-3xl">
+                  {item.name}
+                </h2>
+                <p className="font-imprima text-lg sm:text-base">
+                  {item.description}
+                </p>
               </div>
             </Link>
           )}
@@ -55,11 +59,15 @@ function ListPrestationsPage() {
                 width={330}
                 height={200}
                 alt={item.name}
-                className="rounded-t-lg"
+                className="rounded-t-lg w-full"
               />
               <div className="px-6 py-6 flex flex-col gap-6">
-                <h2 className="font-MrsSaintDelafield text-3xl">{item.name}</h2>
-                <p className="font-imprima text-base">{item.description}</p>
+                <h2 className="font-MrsSaintDelafield text-4xl sm:text-3xl">
+                  {item.name}
+                </h2>
+                <p className="font-imprima text-lg sm:text-base">
+                  {item.description}
+                </p>
               </div>
             </Link>
           )}
@@ -71,11 +79,15 @@ function ListPrestationsPage() {
                 width={330}
                 height={300}
                 alt={item.name}
-                className="rounded-t-lg"
+                className="rounded-t-lg w-full"
               />
               <div className="px-6 py-6 flex flex-col gap-6">
-                <h2 className="font-MrsSaintDelafield text-3xl">{item.name}</h2>
-                <p className="font-imprima text-base">{item.description}</p>
+                <h2 className="font-MrsSaintDelafield text-4xl sm:text-3xl">
+                  {item.name}
+                </h2>
+                <p className="font-imprima text-lg sm:text-base">
+                  {item.description}
+                </p>
               </div>
             </Link>
           )}
@@ -87,11 +99,15 @@ function ListPrestationsPage() {
                 width={330}
                 height={300}
                 alt={item.name}
-                className="rounded-t-lg"
+                className="rounded-t-lg w-full"
               />
               <div className="px-6 py-6 flex flex-col gap-6">
-                <h2 className="font-MrsSaintDelafield text-3xl">{item.name}</h2>
-                <p className="font-imprima text-base">{item.description}</p>
+                <h2 className="font-MrsSaintDelafield text-4xl sm:text-3xl">
+                  {item.name}
+                </h2>
+                <p className="font-imprima text-lg sm:text-base">
+                  {item.description}
+                </p>
               </div>
             </Link>
           )}

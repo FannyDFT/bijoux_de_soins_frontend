@@ -5,18 +5,23 @@ import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 
 function Login() {
-  const { signin } = useAuth();
+  const { signin, signout } = useAuth();
 
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
+  console.log(credentials);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSignout = () => {
+    signout();
   };
 
   return (

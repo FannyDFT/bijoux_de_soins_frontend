@@ -14,7 +14,7 @@ function page(props: AppProps) {
 
   return (
     // <MantineProvider>
-    <div className="flex flex-col h-auto">
+    <div className="flex flex-col h-auto w-full">
       <div>
         <Image
           src={photoHome}
@@ -30,6 +30,7 @@ function page(props: AppProps) {
       <Appointment />
       {/* <CarouselPrestations /> */}
     </div>
+
     // </MantineProvider>
   );
 }

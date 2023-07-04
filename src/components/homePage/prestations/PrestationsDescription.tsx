@@ -43,7 +43,7 @@ function PrestationsDescription() {
       {categories.map((category) => (
         <div
           key={category.id}
-          className="flex-1 flex-col w-full h-full gap-4 px-8 py-10"
+          className="flex-1 flex-col  h-full gap-4 px-8 py-10"
         >
           <CardPrestationDescription
             name={category.name}

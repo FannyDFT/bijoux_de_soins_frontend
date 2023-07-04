@@ -8,13 +8,14 @@ import { RiCloseLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import navigationLinks from "./navigationLinks";
 import { useAuth } from "../../context/AuthContext";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 function Navbar() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeLink, setActiveLink] = useState("");
 
-  const { user, isAuth } = useAuth();
+  const { user, isAuth, signout } = useAuth();
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,6 +33,10 @@ function Navbar() {
 
   const handleLinkClick = (path: string) => {
     setActiveLink(path);
+  };
+
+  const handleSignout = async () => {
+    await signout();
   };
 
   return (
@@ -63,7 +68,12 @@ function Navbar() {
               </Link>
             ))}
             {isAuth ? (
-              <p className="text-terracota">Bonjour {user?.firstname}</p>
+              <div className="flex gap-2">
+                <p className="text-terracota">Bonjour {user?.firstname}</p>
+                <button type="button" onClick={handleSignout}>
+                  <RiLogoutCircleRLine />
+                </button>
+              </div>
             ) : (
               <Link
                 href="/auth/signup"

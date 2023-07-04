@@ -9,6 +9,25 @@ interface ICare {
 }
 
 export const getAll = async () => {
+  // const getServiceById = async (serviceId: string) => {
+  //   try {
+  //     const res = await axios.get(`${URL}/service/${serviceId}`);
+
+  //     if (!res) {
+  //       throw new Error("Nous n'avons pas pu récupérer les données");
+  //     }
+
+  //     const serviceData = res.data;
+
+  //     return serviceData;
+  //   } catch (error) {
+  //     console.log(error);
+  //     return null;
+  //   }
+  // };
+  // const serviceId = await getServiceById(serviceId: string);
+  // console.log(serviceId);
+
   try {
     const getAllCategories = async () => {
       try {
@@ -46,8 +65,6 @@ export const getAll = async () => {
           (category: ICare) =>
             category.id === "4e12a864-21ec-4561-bdec-fb94100c9e51",
         );
-
-        console.log(bodyPackageCategory);
 
         const faceCareCategory = categories.filter(
           (category: ICare) =>
@@ -138,6 +155,7 @@ export const getAll = async () => {
       faceCare: faceCare,
       bodyCare: bodyCare,
       bodyPackage: bodyPackage,
+      // service: serviceId,
     };
   } catch (error) {
     console.log(error);

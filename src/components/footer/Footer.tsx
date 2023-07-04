@@ -49,7 +49,13 @@ function Footer() {
           <p className="font-MrsSaintDelafield text-4xl  ">Suivez moi:</p>
           <div className="flex gap-4 ">
             <Link href="https://www.instagram.com/bijou.xdesoins/">
-              <Image src={insta} width={30} height={30} alt="logo instagram" />
+              <Image
+                src={insta}
+                width={30}
+                height={30}
+                alt="logo instagram"
+                className="hover:scale-125 transition-transform duration-300"
+              />
             </Link>
             <Link href="https://www.facebook.com/bijoux.desoins">
               <Image
@@ -57,6 +63,7 @@ function Footer() {
                 width={30}
                 height={30}
                 alt="logo facebook"
+                className="hover:scale-125 transition-transform duration-300"
               />
             </Link>
           </div>

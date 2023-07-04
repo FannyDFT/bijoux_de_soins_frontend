@@ -1,15 +1,50 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 function Descriptions() {
+  const [isTitleVisible, setIsTitleVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const titleElement = document.getElementById("title");
+      if (titleElement) {
+        const rect = titleElement.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight * 0.8;
+
+        setIsTitleVisible(isInViewport);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="w-full h-auto flex justify-center py-14 bg-background opacity-80">
       <div className="w-2/3 flex flex-col gap-10 ">
-        <div className="flex items-center gap-4 ">
+        <div
+          id="title"
+          className={`flex items-center gap-4 ${
+            isTitleVisible
+              ? "transition-all duration-1000 transform translate-x-0"
+              : "transform -translate-x-full"
+          }`}
+        >
           <hr className="w-10 border-1 border-darkText" />
-          <h3 className="font-ibarra text-3xl ">L&apos;institut</h3>
+          <h3 id="title" className="font-ibarra text-3xl">
+            L&apos;institut
+          </h3>
         </div>
         <div className="flex flex-col gap-10 font-imprima text-base">
-          <div className="flex flex-col items-center">
+          <div
+            className={`flex flex-col items-center ${
+              isTitleVisible
+                ? "transition-all duration-1000 transform translate-x-0"
+                : "transform translate-x-full"
+            }`}
+          >
             <p className="mr-40 sm:mr-72">
               Prendre soin de son <span className="textColor">corps</span>
             </p>
