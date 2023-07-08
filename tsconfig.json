@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/traitments/beautyTreatmentsPrice/[id]"
+    "app/traitments/beautyTreatmentsPrice/[serviceId]"
   ],
   "exclude": ["node_modules"]
 }

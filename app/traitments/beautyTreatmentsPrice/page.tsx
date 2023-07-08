@@ -5,6 +5,7 @@ import { getAll } from "@/service/axiosTools";
 import { IServicesWaxing } from "@/types/IServicesData";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { parseClassName } from "react-toastify/dist/utils";
 
 interface ICare {
   id: string;
@@ -23,7 +24,7 @@ interface IBodyService {
   image: string;
 }
 
-function BeautyTreatmentsPrice({ slug }) {
+function BeautyTreatmentsPrice() {
   const [serviceBodyCategory, setServiceBodyCategory] = useState<{
     bodyPackageCategory: Array<ICare>;
     faceCareCategory: Array<ICare>;
@@ -85,7 +86,7 @@ function BeautyTreatmentsPrice({ slug }) {
         </h2>
         <div className="flex justify-center gap-20 w-full pt-14 pb-28 text-2xl font-ibarra">
           <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
-            {serviceBodyCategory.bodyCareCategory.map((care) => (
+            {Array.from(serviceBodyCategory.bodyCareCategory).map((care) => (
               <button
                 type="button"
                 onClick={handleChangeBody}
@@ -99,14 +100,14 @@ function BeautyTreatmentsPrice({ slug }) {
             ))}
           </div>
           <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
-            {serviceBodyCategory.faceCareCategory.map((care) => (
+            {Array.from(serviceBodyCategory.faceCareCategory).map((care) => (
               <button type="button" onClick={handleChangeFace} key={care.id}>
                 {care.name}
               </button>
             ))}
           </div>
           <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
-            {serviceBodyCategory.bodyPackageCategory.map((care) => (
+            {Array.from(serviceBodyCategory.bodyPackageCategory).map((care) => (
               <button type="button" onClick={handleChangePackage} key={care.id}>
                 {care.name}
               </button>
@@ -119,7 +120,10 @@ function BeautyTreatmentsPrice({ slug }) {
               key={item.id}
               className="flex flex-col w-72 items-center gap-6 border border-1 border-darkText justify-between pb-2 bg-beige hover:scale-125 transition-transform duration-300 rounded-b-lg"
             >
-              <Link href={`traitments/${item.id}`}>
+              <Link
+                href={`traitments/beautyTreatmentsPrice/${item.id}`}
+                className="w-full h-full flex flex-col justify-between"
+              >
                 <BeautyTreatments
                   image={item.image}
                   name={item.name}

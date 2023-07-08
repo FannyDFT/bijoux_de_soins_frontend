@@ -29,7 +29,7 @@ function BeautyTreatments({ name, price, image, duration }: IBeautyTraitment) {
       <h1 className="flex w-full justify-center text-center px-4 font-ibarra text-2xl sm:text-xl">
         {name}
       </h1>
-      <div className="flex w-full items-center text-lg sm:text-base">
+      <div className="flex w-full items-center text-lg pt-6 sm:text-base">
         <p className="pl-4">{formatPrice(price)}€</p>
         <div className="flex justify-end w-full pr-4 gap-2">
           <p>{duration}&apos;</p>
