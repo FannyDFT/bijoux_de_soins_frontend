@@ -4,6 +4,7 @@ import { getAll } from "../../../src/service/axiosTools";
 import { IServicesWaxing } from "../../../src/types/IServicesData";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
+import { formatPrice } from "@/service/utils";
 
 function WaxingPrice() {
   const [servicesData, setServicesData] = useState<{
@@ -24,12 +25,6 @@ function WaxingPrice() {
 
     fetchData();
   }, []);
-
-  const formatPrice = (price: string) => {
-    const numericPrice = parseFloat(price); // Convertir en nombre
-    const roundedPrice = numericPrice.toFixed(2); // Arrondir à deux décimales
-    return roundedPrice; // Retourner la valeur arrondie
-  };
 
   return (
     <div className=" w-full flex flex-col bg-background gap-10 h-auto">

@@ -41,12 +41,12 @@ function BrowAndLashColoringPricesPage() {
 
   return (
     <div className="w-full flex flex-col bg-background">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-4xl font-ibarra">
+      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-3xl font-ibarra">
         Coloration des Cils & Sourcils
       </h2>
 
-      <div className="flex flex-col  sm:flex-row w-full items-center px-9 py-20 gap-10 sm:gap-6">
-        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg">
+      <div className="flex flex-col  sm:flex-row w-full items-center p-28 gap-10 sm:gap-6">
+        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70">
           {eyesBrow && (
             <div className="flex flex-col w-full items-center gap-10 font-ibarra">
               <Image
@@ -81,7 +81,7 @@ function BrowAndLashColoringPricesPage() {
             d&apos;un mois.
           </p>
         </div>
-        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg">
+        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70">
           {eyesLash && (
             <div className="flex flex-col w-full items-center gap-10 font-ibarra">
               <Image

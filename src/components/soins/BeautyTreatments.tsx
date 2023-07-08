@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
+import { formatPrice } from "@/service/utils";
 
 interface IBeautyTraitment {
   name: string;
@@ -12,11 +13,6 @@ interface IBeautyTraitment {
 }
 
 function BeautyTreatments({ name, price, image, duration }: IBeautyTraitment) {
-  const formatPrice = (price: string) => {
-    const numericPrice = parseFloat(price); // Convertir en nombre
-    const roundedPrice = numericPrice.toFixed(2); // Arrondir à deux décimales
-    return roundedPrice; // Retourner la valeur arrondie
-  };
   return (
     <>
       <Image
@@ -24,9 +20,9 @@ function BeautyTreatments({ name, price, image, duration }: IBeautyTraitment) {
         width={200}
         height={300}
         alt={name}
-        className="w-full h-72"
+        className="w-full h-72 border-b border-darkText"
       />
-      <h1 className="flex w-full justify-center text-center px-4 font-ibarra text-2xl sm:text-xl">
+      <h1 className="flex w-full justify-center text-center px-4 pt-4 font-ibarra text-2xl sm:text-xl">
         {name}
       </h1>
       <div className="flex w-full items-center text-lg pt-6 sm:text-base">

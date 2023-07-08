@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
 type CategoryType =
-  | " laboratoireProducts"
+  | "laboratoireProducts"
   | "pulpeProducts"
   | "referenceProducts"
   | "zaoProducts"
@@ -40,6 +40,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAll();
+      console.log(data);
 
       setProductsData({
         laboratoireProducts: data.laboratoireProducts,
@@ -61,7 +62,7 @@ function ProductPage() {
         </h2>
       </div>
       <div className="flex">
-        <div className="bg-beige bg-opacity-40 w-1/4 gap-8  border-r-2 border-darkText flex flex-col justify-start items-start font-imprima">
+        <div className="bg-beige bg-opacity-40 w-1/4 gap-8 pb-10 border-r-2 border-darkText flex flex-col justify-start items-start font-imprima">
           <button
             className="w-full flex justify-start items-center text-xl pl-6 pt-6 hover:text-terracota "
             onClick={() => handleCategoryChange("pulpeProducts")}
@@ -93,9 +94,9 @@ function ProductPage() {
             Luxy Cils
           </button>
         </div>
-        <div className="h-screen w-3/4 bg-beige bg-opacity-70 ">
-          <div className=" h-full w-full overflow-y-scroll ">
-            <div className="grid grid-cols-4 gap-20 p-10 w-full h-full ">
+        <div className="h-screen w-3/4 bg-beige bg-opacity-70 pb-10 ">
+          <div className=" h-full w-full overflow-y-scroll">
+            <div className="grid grid-cols-4 gap-16 p-10 w-full h-full ">
               {selectedCategory &&
                 productsData[selectedCategory] &&
                 productsData[selectedCategory].map((item) => (

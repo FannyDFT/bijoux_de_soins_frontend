@@ -33,11 +33,11 @@ function Descriptions() {
           }`}
         >
           <hr className="w-10 border-1 border-darkText" />
-          <h3 id="title" className="font-ibarra text-3xl">
+          <h3 id="title" className="font-ibarra text-4xl">
             L&apos;institut
           </h3>
         </div>
-        <div className="flex flex-col gap-10 font-imprima text-base">
+        <div className="flex flex-col gap-10 font-imprima text-lg">
           <div
             className={`flex flex-col items-center ${
               isTitleVisible
