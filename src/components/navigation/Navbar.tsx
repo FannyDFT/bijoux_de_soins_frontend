@@ -8,13 +8,17 @@ import { RiCloseLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import navigationLinks from "./navigationLinks";
 import { useAuth } from "../../context/AuthContext";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 function Navbar() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [showDashboard, setShowDashboard] = useState(false);
 
-  const { user, isAuth } = useAuth();
+  const { user, isAuth, signout } = useAuth();
+
+  const isAdmin = user?.email === "laura.d.du42@hotmail.fr";
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,8 +27,10 @@ function Navbar() {
 
     handleResize();
     window.addEventListener("resize", handleResize);
+
+    setShowDashboard(isAuth && isAdmin);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [isAuth]);
 
   const toggleMenu = () => {
     setIsOpenMenu(!isOpenMenu);
@@ -32,6 +38,10 @@ function Navbar() {
 
   const handleLinkClick = (path: string) => {
     setActiveLink(path);
+  };
+
+  const handleSignout = async () => {
+    await signout();
   };
 
   return (
@@ -52,6 +62,15 @@ function Navbar() {
           </Link>
 
           <div className="flex gap-10 mr-4 text-darkText font-ibarra text-2xl ">
+            {showDashboard && (
+              <Link
+                href="/dashboard"
+                onClick={() => handleLinkClick("/dashboard")}
+                className="text-terracota"
+              >
+                Dashboard
+              </Link>
+            )}
             {navigationLinks.map((item) => (
               <Link
                 key={item.id}
@@ -63,15 +82,16 @@ function Navbar() {
               </Link>
             ))}
             {isAuth ? (
-              <p className="text-terracota">Bonjour {user?.firstname}</p>
+              <div className="flex gap-2">
+                <p className="text-terracota">Bonjour {user?.firstname}</p>
+                <button type="button" onClick={handleSignout}>
+                  <RiLogoutCircleRLine />
+                </button>
+              </div>
             ) : (
               <Link
                 href="/auth/signup"
-                className={
-                  activeLink === "/auth/signup"
-                    ? "text-terracota"
-                    : "text-darkText"
-                }
+                className={"hover:text-terracota"}
                 onClick={() => handleLinkClick("/signin")}
               >
                 Connexion
@@ -82,7 +102,7 @@ function Navbar() {
       ) : (
         <div className="flex items-center justify-between p-4">
           <div>
-            <Link href="/signin" className="flex items-center gap-2">
+            <Link href="/signin" className="flex items-center gap-2 ">
               <Image src={conection} width={35} height={35} alt="50" />
               <p>Se Connecter</p>
             </Link>

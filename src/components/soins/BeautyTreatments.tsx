@@ -4,7 +4,14 @@ import React from "react";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
 
-function BeautyTreatments({ name, price, image, duration }) {
+interface IBeautyTraitment {
+  name: string;
+  price: string;
+  image: string;
+  duration: string;
+}
+
+function BeautyTreatments({ name, price, image, duration }: IBeautyTraitment) {
   const formatPrice = (price: string) => {
     const numericPrice = parseFloat(price); // Convertir en nombre
     const roundedPrice = numericPrice.toFixed(2); // Arrondir à deux décimales
@@ -17,13 +24,15 @@ function BeautyTreatments({ name, price, image, duration }) {
         width={200}
         height={300}
         alt={name}
-        className="w-full"
+        className="w-full h-72"
       />
-      <h1 className="flex w-full justify-center text-center px-4">{name}</h1>
-      <div className="flex w-full items-center">
+      <h1 className="flex w-full justify-center text-center px-4 font-ibarra text-2xl sm:text-xl">
+        {name}
+      </h1>
+      <div className="flex w-full items-center text-lg pt-6 sm:text-base">
         <p className="pl-4">{formatPrice(price)}€</p>
-        <div className="flex justify-end w-full pr-4 gap-1">
-          <p>{duration}</p>
+        <div className="flex justify-end w-full pr-4 gap-2">
+          <p>{duration}&apos;</p>
           <Image src={time} width={30} height={30} alt="time" />
         </div>
       </div>

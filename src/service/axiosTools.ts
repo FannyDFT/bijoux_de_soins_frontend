@@ -1,5 +1,6 @@
 import axios from "axios";
-import { ICategoryService } from "../types/ICategoryServcice";
+import { ICategoryService } from "@/types/ICategoryServcice";
+import { IProductsData } from "@/types/IProductsData";
 
 const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
@@ -20,6 +21,7 @@ export const getAll = async () => {
 
         const categories = res.data;
 
+        // Récupération des Services et des produits à part
         const filteredCategoriesOfServices = categories.filter(
           (category: ICategoryService) =>
             category.parentId === null && category.type === "SERVICE",
@@ -30,6 +32,7 @@ export const getAll = async () => {
             category.parentId === null && category.type === "PRODUCT",
         );
 
+        // Récupération de mes catégories par categoryId
         const beautyMainsCategory = categories.find(
           (category: ICategoryService) =>
             category.type === "SERVICE" &&
@@ -42,19 +45,17 @@ export const getAll = async () => {
             category.id === "491f31ff-8ab8-484d-b360-15db5f29fba9",
         );
 
-        const bodyPackageCategory = categories.filter(
+        const bodyPackageCategory = categories.find(
           (category: ICare) =>
             category.id === "4e12a864-21ec-4561-bdec-fb94100c9e51",
         );
 
-        console.log(bodyPackageCategory);
-
-        const faceCareCategory = categories.filter(
+        const faceCareCategory = categories.find(
           (category: ICare) =>
             category.id === "1c1a30a2-da52-40e3-a698-109ff2a8047a",
         );
 
-        const bodyCareCategory = categories.filter(
+        const bodyCareCategory = categories.find(
           (category: ICare) =>
             category.id === "0e896296-7745-4267-ac1b-bc3bc3fe983a",
         );
@@ -127,6 +128,37 @@ export const getAll = async () => {
       "a4d06671-7d9c-4c73-979b-76112635bb0b",
     );
 
+    const getAllProduct = async (categoryId: string) => {
+      try {
+        const res = await axios.get(`${URL}/product?categoryId=${categoryId}`);
+        if (!res) {
+          throw new Error("Nous n'avons pas pu récupérer les données");
+        }
+        const allProducts = res.data;
+        return allProducts;
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
+    };
+
+    const pulpeProducts = await getAllProduct(
+      "fec64e54-eea4-47e5-9364-5c3bde09bd04",
+    );
+
+    const laboratoireProducts = await getAllProduct(
+      "7187ff30-cae3-4812-9936-bd92b3c62f7e",
+    );
+    const referenceProducts = await getAllProduct(
+      "08962a21-7d18-450e-aef3-dcb3324f5185",
+    );
+    const zaoProducts = await getAllProduct(
+      "631f9bb0-6b9d-4b53-b527-ffdbbd43b695",
+    );
+    const luxyProducts = await getAllProduct(
+      "f744e5ee-25ac-4531-98e1-0b4068cd2b3c",
+    );
+
     return {
       ...categoriesData,
       faceServicesData: faceServicesData,
@@ -138,6 +170,11 @@ export const getAll = async () => {
       faceCare: faceCare,
       bodyCare: bodyCare,
       bodyPackage: bodyPackage,
+      pulpeProducts: pulpeProducts,
+      laboratoireProducts: laboratoireProducts,
+      referenceProducts: referenceProducts,
+      zaoProducts: zaoProducts,
+      luxyProducts: luxyProducts,
     };
   } catch (error) {
     console.log(error);
@@ -155,6 +192,8 @@ export const getAll = async () => {
       faceCare: [],
       bodyCare: [],
       bodyPackage: [],
+      pulpeProducts: [],
+      laboratoireProducts: [],
     };
   }
 };

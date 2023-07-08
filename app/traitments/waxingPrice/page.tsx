@@ -32,15 +32,30 @@ function WaxingPrice() {
   };
 
   return (
-    <div className=" w-full flex flex-col bg-beige gap-10 h-auto">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-4xl font-ibarra">
+    <div className=" w-full flex flex-col bg-background gap-10 h-auto">
+      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-4xl font-ibarra">
         Les Epilations
       </h2>
 
-      <div className="w-full flex justify-center gap-20 font-ibarra text-xl">
-        <a href="#visage">Visage</a>
-        <a href="#corps">Corps</a>
-        <a href="#forfait">Forfait</a>
+      <div className="w-full flex justify-center gap-20 font-ibarra text-xl ">
+        <a
+          href="#visage"
+          className="hover:scale-125 transition-transform duration-300 hover:text-terracota"
+        >
+          Visage
+        </a>
+        <a
+          href="#corps"
+          className="hover:scale-125 transition-transform duration-300 hover:text-terracota"
+        >
+          Corps
+        </a>
+        <a
+          href="#forfait"
+          className="hover:scale-125 transition-transform duration-300 hover:text-terracota"
+        >
+          Forfait
+        </a>
       </div>
 
       <div className="flex flex-col w-full items-center gap-10 font-ibarra text-lg">
@@ -48,7 +63,7 @@ function WaxingPrice() {
           Pose de masque pendant l&apos;épilation
         </h3>
         <div className="w-full flex justify-center">
-          <div className="flex flex-col gap-4 bg-whiteText py-6 items-center w-1/2 border border-1 border-darkText">
+          <div className="flex flex-col gap-4 bg-whiteText py-6 items-center text-center sm:text-left w-3/4 sm:w-1/2 border border-1 border-darkText px-4 sm:px-0">
             <p className="">Masque film naturel Hydra Repulpant 7.50€</p>
             <p>Masque naturel Purifiant Oxygénant 7.50€</p>
             <p>Pose masquee naturel Revitalisant Anti-Âge 7.50€</p>

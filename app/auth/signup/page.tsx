@@ -1,14 +1,25 @@
 "use client";
 import { signupDatas } from "../signupDatas";
 import Input from "../Input";
-// import Link from "next/link";
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import Link from "next/link";
+import { ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
 
 function Signup() {
+  // const router = useRouter();
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
+
+  const initialFormState = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    phone: "",
+  };
 
   const [form, setForm] = useState({
     firstname: "",
@@ -35,6 +46,11 @@ function Signup() {
         password: form.password,
         phone: form.phone,
       });
+      toast.success(
+        "Compte créé avec succès, vous pouvez désormais vous connecter",
+      );
+      // router.push("/auth/signin");
+      setForm(initialFormState);
     } catch (error) {
       console.log(error);
     }
@@ -61,6 +77,18 @@ function Signup() {
         onSubmit={handleSubmit}
       >
         <form className="flex flex-col gap-4 w-3/4">
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
           {signupDatas.map((item) => (
             <Input
               key={item.id}
