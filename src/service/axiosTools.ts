@@ -170,8 +170,8 @@ export const getAll = async () => {
       faceCare: faceCare,
       bodyCare: bodyCare,
       bodyPackage: bodyPackage,
-      pulpeProducts: pulpeProducts,
       laboratoireProducts: laboratoireProducts,
+      pulpeProducts: pulpeProducts,
       referenceProducts: referenceProducts,
       zaoProducts: zaoProducts,
       luxyProducts: luxyProducts,
@@ -194,6 +194,9 @@ export const getAll = async () => {
       bodyPackage: [],
       pulpeProducts: [],
       laboratoireProducts: [],
+      referenceProducts: [],
+      zaoProducts: [],
+      luxyProducts: [],
     };
   }
 };

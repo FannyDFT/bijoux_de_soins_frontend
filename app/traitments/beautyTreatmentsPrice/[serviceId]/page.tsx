@@ -6,6 +6,7 @@ import Image from "next/image";
 import time from "../../../../public/assets/time.png";
 import Link from "next/link";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { formatPrice } from "@/service/utils";
 
 interface IServiceDetails {
   id: string;
@@ -43,12 +44,6 @@ function ServiceDetails({
     return <div>Loading...</div>;
   }
 
-  const formatPrice = (price: string) => {
-    const numericPrice = parseFloat(price); // Convertir en nombre
-    const roundedPrice = numericPrice.toFixed(2); // Arrondir à deux décimales
-    return roundedPrice; // Retourner la valeur arrondie
-  };
-
   const formatDescription = (description: string) => {
     return description.replace(/\./g, ".\n");
   };
@@ -62,7 +57,11 @@ function ServiceDetails({
             onClick={() => window.history.back()}
             className="absolute left-5 top-12"
           >
-            <BsArrowLeftCircle size={32} color="white" />
+            <BsArrowLeftCircle
+              size={32}
+              color="white"
+              className="hover:scale-125 transition-transform duration-300"
+            />
           </button>
         </div>
 
@@ -79,7 +78,7 @@ function ServiceDetails({
               alt={serviceDetails.name}
               width={230}
               height={330}
-              className="w-72 h-80 rounded-lg"
+              className="w-72 h-80 rounded-lg border border-darkText"
             />
             <h3 className="text-terracota text-2xl text-center">
               {serviceDetails.name}

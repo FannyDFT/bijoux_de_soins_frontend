@@ -76,15 +76,13 @@ function BeautyTreatmentsPrice() {
     fetchData();
   }, []);
 
-  console.log(serviceBody);
-
   return (
-    <div className="w-full ">
+    <div className="w-full h-full">
       <div className="flex flex-col bg-background">
         <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-3xl font-ibarra">
           Les Soins
         </h2>
-        <div className="flex justify-center gap-20 w-full pt-14 pb-28 text-2xl font-ibarra">
+        <div className="flex h-40 justify-center gap-20 w-full py-14 text-2xl font-ibarra">
           <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
             {Array.from(serviceBodyCategory.bodyCareCategory).map((care) => (
               <button
@@ -92,7 +90,9 @@ function BeautyTreatmentsPrice() {
                 onClick={handleChangeBody}
                 key={care.id}
                 className={`${
-                  selectedCategory === "bodyCare" ? "text-terracota" : ""
+                  selectedCategory === "bodyCare"
+                    ? "text-terracota"
+                    : "text-darkText"
                 }`}
               >
                 {care.name}
@@ -101,14 +101,32 @@ function BeautyTreatmentsPrice() {
           </div>
           <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
             {Array.from(serviceBodyCategory.faceCareCategory).map((care) => (
-              <button type="button" onClick={handleChangeFace} key={care.id}>
+              <button
+                type="button"
+                onClick={handleChangeFace}
+                key={care.id}
+                className={`${
+                  selectedCategory === "bodyCare"
+                    ? "text-terracota"
+                    : "text-darkText"
+                }`}
+              >
                 {care.name}
               </button>
             ))}
           </div>
           <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
             {Array.from(serviceBodyCategory.bodyPackageCategory).map((care) => (
-              <button type="button" onClick={handleChangePackage} key={care.id}>
+              <button
+                type="button"
+                onClick={handleChangePackage}
+                key={care.id}
+                className={`${
+                  selectedCategory === "bodyCare"
+                    ? "text-terracota"
+                    : "text-darkText"
+                }`}
+              >
                 {care.name}
               </button>
             ))}
@@ -118,7 +136,7 @@ function BeautyTreatmentsPrice() {
           {serviceBody[selectedCategory]?.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col w-72 items-center gap-6 border border-1 border-darkText justify-between pb-2 bg-beige hover:scale-125 transition-transform duration-300 rounded-b-lg"
+              className="flex flex-col w-72 items-center gap-6 border border-1 border-darkText justify-between pb-2 bg-beige bg-opacity-60 hover:scale-125 transition-transform duration-300 rounded-b-lg"
             >
               <Link
                 href={`traitments/beautyTreatmentsPrice/${item.id}`}

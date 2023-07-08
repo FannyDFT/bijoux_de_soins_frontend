@@ -4,6 +4,7 @@ import { IServicesManicure } from "@/types/IServicesManicure";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
+import { formatPrice } from "@/service/utils";
 
 interface IMainFeet {
   name: string;
@@ -38,15 +39,9 @@ function NailServicesPricesPage() {
     fetchData();
   }, []);
 
-  const formatPrice = (price: string) => {
-    const numericPrice = parseFloat(price); // Convertir en nombre
-    const roundedPrice = numericPrice.toFixed(2); // Arrondir à deux décimales
-    return roundedPrice; // Retourner la valeur arrondie
-  };
-
   return (
     <div className="bg-background">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-4xl font-ibarra">
+      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white  text-2xl sm:text-3xl font-ibarra">
         Beauté des mains & des pieds
       </h2>
       <div className="w-full flex flex-col gap-20">

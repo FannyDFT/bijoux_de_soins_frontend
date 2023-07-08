@@ -48,7 +48,10 @@ function Footer() {
         <div className="flex flex-col items-center w-full">
           <p className="font-MrsSaintDelafield text-4xl  ">Suivez moi:</p>
           <div className="flex gap-4 ">
-            <Link href="https://www.instagram.com/bijou.xdesoins/">
+            <Link
+              href="https://www.instagram.com/bijou.xdesoins/"
+              target="_blank"
+            >
               <Image
                 src={insta}
                 width={30}
@@ -57,7 +60,10 @@ function Footer() {
                 className="hover:scale-125 transition-transform duration-300"
               />
             </Link>
-            <Link href="https://www.facebook.com/bijoux.desoins">
+            <Link
+              href="https://www.facebook.com/bijoux.desoins"
+              target="_blank"
+            >
               <Image
                 src={facebook}
                 width={30}

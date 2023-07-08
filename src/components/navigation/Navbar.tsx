@@ -52,8 +52,8 @@ function Navbar() {
           <Link href="/" onClick={() => handleLinkClick("/")}>
             <Image
               src={logoBjx}
-              width={100}
-              height={100}
+              width={150}
+              height={150}
               alt="logo bijoux de soins"
               className={
                 activeLink === "/" ? "text-terracota " : "text-darkText"

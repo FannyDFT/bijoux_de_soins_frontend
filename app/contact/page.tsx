@@ -1,9 +1,63 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import makeUpContact from "../../public/assets/makeUpContact.jpg";
 import contactImg from "../../public/assets/contactImg.jpg";
 import Image from "next/image";
+import { info } from "console";
 
 function Contact() {
+  const [infos, setInfos] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    message: "",
+  });
+  console.log(infos);
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setInfos((prevInfos) => ({
+      ...prevInfos,
+      [name]: value,
+    }));
+  };
+
+  const handleContactClick = () => {
+    const { firstname, lastname, email, message } = infos;
+    console.log(firstname);
+
+    const subject = encodeURIComponent("Demande de contact");
+
+    const bodyParams = [
+      `Nom : ${decodeURIComponent(lastname)}`,
+      `Prénom : ${decodeURIComponent(firstname)}`,
+      `Email : ${decodeURIComponent(email)}`,
+      "",
+      `Message : ${decodeURIComponent(message)}`,
+      "",
+      "Use client",
+    ];
+    const body = bodyParams.join("\n");
+
+    const mailtoLink = `mailto:fannyd.erfurth@yahoo.fr?subject=${subject}&body=${encodeURIComponent(
+      body,
+    )}`;
+
+    window.open(mailtoLink, "_blank");
+
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setInfos({
+      firstname: "",
+      lastname: "",
+      email: "",
+      message: "",
+    });
+  };
+
   return (
     <div className="w-full flex flex-col pt-12">
       <div className="flex w-full">
@@ -28,15 +82,33 @@ function Contact() {
           <form className="flex flex-col w-2/3 gap-6">
             <label htmlFor="firstname" className="contact labelContact">
               Prénom *
-              <input type="text" className="inputConection" />
+              <input
+                type="text"
+                value={infos.firstname}
+                name="firstname"
+                className="inputConection p-2"
+                onChange={handleChangeInput}
+              />
             </label>
-            <label htmlFor="name" className="contact labelContact">
+            <label htmlFor="lastname" className="contact labelContact">
               Nom *
-              <input type="text" className="inputConection" />
+              <input
+                type="text"
+                value={infos.lastname}
+                name="lastname"
+                className="inputConection p-2"
+                onChange={handleChangeInput}
+              />
             </label>
             <label htmlFor="email" className="contact labelContact">
               Email *
-              <input type="text" className="inputConection" />
+              <input
+                type="text"
+                name="email"
+                value={infos.email}
+                className="inputConection p-2"
+                onChange={handleChangeInput}
+              />
             </label>
             <label
               htmlFor="message"
@@ -44,11 +116,18 @@ function Contact() {
             >
               <textarea
                 className="inputConection p-4"
-                defaultValue="Message"
+                value={infos.message}
+                name="message"
+                onChange={handleChangeInput}
               ></textarea>
             </label>
-            <button type="submit" className="buttonConection mt-9">
-              Envoyer
+
+            <button
+              type="button"
+              className="buttonConection mt-9"
+              onClick={handleContactClick}
+            >
+              Envoyer un message
             </button>
           </form>
         </div>
