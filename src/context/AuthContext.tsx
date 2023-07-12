@@ -26,6 +26,7 @@ type AuthState = {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
+  console.log(URL);
 
   const [authState, setAuthState] = useState<AuthState>({
     user: null,
@@ -40,7 +41,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         password,
       });
       setAuthState(() => ({ isAuth: true, user: data, isLoading: false }));
-      const token = headers["authorization"];
+      const token = headers["Authorization"];
+      console.log(headers["Authorization"]);
+
+      console.log("Token before storing:", token);
       axios.defaults.headers.common["authorization"] = token;
       localStorage.setItem("token", token || "");
     } catch (error) {

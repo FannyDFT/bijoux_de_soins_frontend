@@ -26,21 +26,17 @@ function ProductPage() {
     luxyProducts: [],
   });
 
-  console.log(productsData);
-
   const [selectedCategory, setSelectedCategory] =
     useState<CategoryType>("pulpeProducts");
   // const selectedProducts = productsData[selectedCategory];
 
   const handleCategoryChange = (category: CategoryType) => {
     setSelectedCategory(category);
-    console.log(category);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAll();
-      console.log(data);
 
       setProductsData({
         laboratoireProducts: data.laboratoireProducts,

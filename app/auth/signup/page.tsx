@@ -7,10 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
-import { useRouter } from "next/router";
 
 function Signup() {
-  // const router = useRouter();
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
   const initialFormState = {
@@ -49,7 +47,7 @@ function Signup() {
       toast.success(
         "Compte créé avec succès, vous pouvez désormais vous connecter",
       );
-      // router.push("/auth/signin");
+
       setForm(initialFormState);
     } catch (error) {
       console.log(error);
