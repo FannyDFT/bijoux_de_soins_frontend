@@ -135,6 +135,7 @@ export const getAll = async () => {
           throw new Error("Nous n'avons pas pu récupérer les données");
         }
         const allProducts = res.data;
+
         return allProducts;
       } catch (error) {
         console.log(error);
@@ -159,6 +160,14 @@ export const getAll = async () => {
       "f744e5ee-25ac-4531-98e1-0b4068cd2b3c",
     );
 
+    const allProducts = {
+      laboratoireProducts,
+      pulpeProducts,
+      referenceProducts,
+      zaoProducts,
+      luxyProducts,
+    };
+
     return {
       ...categoriesData,
       faceServicesData: faceServicesData,
@@ -175,6 +184,7 @@ export const getAll = async () => {
       referenceProducts: referenceProducts,
       zaoProducts: zaoProducts,
       luxyProducts: luxyProducts,
+      allProducts: allProducts,
     };
   } catch (error) {
     console.log(error);
@@ -197,6 +207,7 @@ export const getAll = async () => {
       referenceProducts: [],
       zaoProducts: [],
       luxyProducts: [],
+      allProducts: [],
     };
   }
 };

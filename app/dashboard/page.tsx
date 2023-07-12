@@ -1,3 +1,4 @@
+import ProductsList from "../../src/components/productsDashboard/ProductsList";
 import React from "react";
 
 function page() {
@@ -14,7 +15,9 @@ function page() {
           Gestion Prestations
         </button>
       </div>
-      <div className="w-3/4"></div>
+      <div className="w-3/4">
+        <ProductsList />
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@tabler/icons-react": "^2.21.0",
     "@tiptap/extension-link": "^2.0.3",
     "@tiptap/react": "^2.0.3",
@@ -19,11 +20,14 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "dayjs": "^1.11.8",
+    "dotenv": "^16.3.1",
+    "emailjs-com": "^3.2.0",
     "embla-carousel-autoplay": "^8.0.0-rc07",
     "embla-carousel-react": "^7.0.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "next": "13.4.3",
+    "next-runtime-dotenv": "^1.5.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",

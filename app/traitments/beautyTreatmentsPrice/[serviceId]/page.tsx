@@ -27,7 +27,6 @@ function ServiceDetails({
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
   const [serviceDetails, setServiceDetails] = useState<IServiceDetails>();
-  console.log(serviceDetails);
 
   useEffect(() => {
     const getServiceDetails = async () => {

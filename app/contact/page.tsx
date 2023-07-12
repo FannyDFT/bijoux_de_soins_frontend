@@ -1,10 +1,11 @@
 "use client";
+require("dotenv").config();
 
-import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import React, { ChangeEvent, useState } from "react";
 import makeUpContact from "../../public/assets/makeUpContact.jpg";
 import contactImg from "../../public/assets/contactImg.jpg";
 import Image from "next/image";
-import { info } from "console";
 
 function Contact() {
   const [infos, setInfos] = useState({
@@ -13,9 +14,8 @@ function Contact() {
     email: "",
     message: "",
   });
-  console.log(infos);
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInfos((prevInfos) => ({
       ...prevInfos,
@@ -23,30 +23,12 @@ function Contact() {
     }));
   };
 
-  const handleContactClick = () => {
-    const { firstname, lastname, email, message } = infos;
-    console.log(firstname);
-
-    const subject = encodeURIComponent("Demande de contact");
-
-    const bodyParams = [
-      `Nom : ${decodeURIComponent(lastname)}`,
-      `Prénom : ${decodeURIComponent(firstname)}`,
-      `Email : ${decodeURIComponent(email)}`,
-      "",
-      `Message : ${decodeURIComponent(message)}`,
-      "",
-      "Use client",
-    ];
-    const body = bodyParams.join("\n");
-
-    const mailtoLink = `mailto:fannyd.erfurth@yahoo.fr?subject=${subject}&body=${encodeURIComponent(
-      body,
-    )}`;
-
-    window.open(mailtoLink, "_blank");
-
-    resetForm();
+  const handleChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setInfos((prevInfos) => ({
+      ...prevInfos,
+      [name]: value,
+    }));
   };
 
   const resetForm = () => {
@@ -56,6 +38,35 @@ function Contact() {
       email: "",
       message: "",
     });
+  };
+
+  const sendEmail = () => {
+    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const userId = process.env.NEXT_PUBLIC_USER_ID;
+
+    if (!serviceId || !templateId || !userId) {
+      console.error("Les variables d'environnement ne sont pas définies.");
+      return;
+    }
+    const { firstname, lastname, email, message } = infos;
+
+    const templateParams = {
+      lastname: lastname,
+      firstname: firstname,
+      message,
+      email: email,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams, userId)
+      .then((response) => {
+        console.log("E-mail sent successfully:", response);
+        resetForm();
+      })
+      .catch((error) => {
+        console.error("Failed to send e-mail:", error);
+      });
   };
 
   return (
@@ -118,14 +129,14 @@ function Contact() {
                 className="inputConection p-4"
                 value={infos.message}
                 name="message"
-                onChange={handleChangeInput}
+                onChange={handleChangeTextarea}
               ></textarea>
             </label>
 
             <button
               type="button"
               className="buttonConection mt-9"
-              onClick={handleContactClick}
+              onClick={sendEmail}
             >
               Envoyer un message
             </button>
