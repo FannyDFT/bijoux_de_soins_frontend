@@ -45,7 +45,7 @@ function NailServicesPricesPage() {
         Beauté des mains & des pieds
       </h2>
       <div className="w-full flex flex-col gap-20">
-        <div className="flex flex-col items-center sm:flex-row sm:items-start w-full gap-6 sm:pl-9 mt-14">
+        <div className="flex flex-col items-center sm:flex-row sm:items-start w-full gap-6 pl-2 sm:pl-9 mt-14">
           <div className="w-1/3 flex flex-col items-center gap-10">
             <h4 className="text-terracota font-imprima text-2xl sm:text-lg text-center sm:text-left border-b border-darkText pb-5">
               {servicesData.beautyMain.name}

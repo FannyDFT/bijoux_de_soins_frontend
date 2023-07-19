@@ -19,7 +19,6 @@ interface IServiceDetails {
 
 function ServiceDetails({
   params,
-  searchParams,
 }: {
   params: { serviceId: string };
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -64,25 +63,25 @@ function ServiceDetails({
           </button>
         </div>
 
-        <h2 className=" text-2xl sm:text-3xl font-ibarra flex items-center">
+        <h2 className=" text-xl text-center w-1/2 sm:text-2xl font-ibarra flex items-center justify-center">
           {serviceDetails.name}
         </h2>
       </div>
 
-      <div className="bg-background w-full flex justify-center py-28 font-ibarra">
-        <div className=" bg-beige bg-opacity-60 border border-1 border-darkText gap-6 flex rounded-lg p-11 w-2/3">
+      <div className="bg-background w-full flex justify-center py-20 font-ibarra">
+        <div className="flex-col sm:flex gap-6 sm:flex-row bg-beige bg-opacity-60 border border-1 border-darkText rounded-lg p-10 w-2/3">
           <div className="flex-1 flex flex-col items-center gap-8">
             <Image
               src={serviceDetails.image}
               alt={serviceDetails.name}
               width={230}
               height={330}
-              className="w-72 h-80 rounded-lg border border-darkText"
+              className="w-48 sm:w-72 h-56 sm:h-80 rounded-lg border border-darkText"
             />
-            <h3 className="text-terracota text-2xl text-center">
+            <h3 className="text-terracota text-xl sm:text-xl text-center font-imprima">
               {serviceDetails.name}
             </h3>
-            <div className="flex w-full justify-between text-2xl px-10">
+            <div className="flex w-full justify-between text-lg sm:text-xl px-0 sm:px-10 gap-6 font-imprima">
               <p>{formatPrice(serviceDetails.price)}€</p>
               <p className="flex gap-2">
                 {serviceDetails.duration}&apos;
@@ -90,14 +89,14 @@ function ServiceDetails({
               </p>
             </div>
           </div>
-          <div className="flex-1 flex flex-col justify-between items-center gap-8">
-            <p className="text-2xl">
+          <div className="flex-1 flex flex-col justify-between items-center gap-8 mt-10 sm:m-0">
+            <p className="text-lg sm:text-xl font font-imprima">
               {formatDescription(serviceDetails.description)}
             </p>
             <Link href="/appointments">
               <button
                 type="button"
-                className="border border-1 border-terracota rounded-tl-xl bg-white text-terracota px-6 py-4 text-2xl hover:bg-terracota hover:text-white"
+                className="border border-1 border-terracota rounded-tl-xl bg-white text-terracota px-3 sm:px-6 py-2 sm:py-4 text-lg sm:text-xl hover:bg-terracota hover:text-white font-imprima"
               >
                 Prendre Rendez-Vous
               </button>

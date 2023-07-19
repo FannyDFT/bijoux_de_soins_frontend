@@ -2,10 +2,8 @@
 
 import BeautyTreatments from "@/components/soins/BeautyTreatments";
 import { getAll } from "@/service/axiosTools";
-import { IServicesWaxing } from "@/types/IServicesData";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { parseClassName } from "react-toastify/dist/utils";
 
 interface ICare {
   id: string;
@@ -26,9 +24,9 @@ interface IBodyService {
 
 function BeautyTreatmentsPrice() {
   const [serviceBodyCategory, setServiceBodyCategory] = useState<{
-    bodyPackageCategory: Array<ICare>;
-    faceCareCategory: Array<ICare>;
-    bodyCareCategory: Array<ICare>;
+    bodyPackageCategory: ICare[];
+    faceCareCategory: ICare[];
+    bodyCareCategory: ICare[];
   }>({
     bodyPackageCategory: [],
     faceCareCategory: [],
@@ -38,9 +36,9 @@ function BeautyTreatmentsPrice() {
   type CategoryType = "faceCare" | "bodyCare" | "bodyPackage";
 
   const [serviceBody, setServiceBody] = useState<{
-    faceCare: Array<IBodyService>;
-    bodyCare: Array<IBodyService>;
-    bodyPackage: Array<IBodyService>;
+    faceCare: IBodyService[];
+    bodyCare: IBodyService[];
+    bodyPackage: IBodyService[];
   }>({
     faceCare: [],
     bodyCare: [],
@@ -65,7 +63,12 @@ function BeautyTreatmentsPrice() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAll();
-      setServiceBodyCategory(data);
+
+      setServiceBodyCategory({
+        bodyPackageCategory: data.bodyPackageCategory,
+        faceCareCategory: data.faceCareCategory,
+        bodyCareCategory: data.bodyCareCategory,
+      });
       setServiceBody({
         faceCare: data.faceCare,
         bodyCare: data.bodyCare,
@@ -82,61 +85,31 @@ function BeautyTreatmentsPrice() {
         <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-3xl font-ibarra">
           Les Soins
         </h2>
-        <div className="flex h-40 justify-center gap-20 w-full py-14 text-2xl font-ibarra">
-          <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
-            {Array.from(serviceBodyCategory.bodyCareCategory).map((care) => (
-              <button
-                type="button"
-                onClick={handleChangeBody}
-                key={care.id}
-                className={`${
-                  selectedCategory === "bodyCare"
-                    ? "text-terracota"
-                    : "text-darkText"
-                }`}
-              >
-                {care.name}
-              </button>
-            ))}
-          </div>
-          <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
-            {Array.from(serviceBodyCategory.faceCareCategory).map((care) => (
-              <button
-                type="button"
-                onClick={handleChangeFace}
-                key={care.id}
-                className={`${
-                  selectedCategory === "bodyCare"
-                    ? "text-terracota"
-                    : "text-darkText"
-                }`}
-              >
-                {care.name}
-              </button>
-            ))}
-          </div>
-          <div className="hover:scale-125 transition-transform duration-300 hover:text-terracota">
-            {Array.from(serviceBodyCategory.bodyPackageCategory).map((care) => (
-              <button
-                type="button"
-                onClick={handleChangePackage}
-                key={care.id}
-                className={`${
-                  selectedCategory === "bodyCare"
-                    ? "text-terracota"
-                    : "text-darkText"
-                }`}
-              >
-                {care.name}
-              </button>
-            ))}
-          </div>
+        <div className="flex h-40 justify-center gap-8 sm:gap-20 w-full py-14 text-2xl font-ibarra">
+          <button
+            onClick={handleChangeFace}
+            className="hover:text-terracota hover:scale-125 transition-transform duration-300"
+          >
+            Visages
+          </button>
+          <button
+            onClick={handleChangeBody}
+            className="hover:text-terracota hover:scale-125 transition-transform duration-300"
+          >
+            Corps
+          </button>
+          <button
+            onClick={handleChangePackage}
+            className="hover:text-terracota hover:scale-125 transition-transform duration-300"
+          >
+            Forfait
+          </button>
         </div>
-        <div className="flex flex-wrap gap-44 justify-center w-full pb-48">
+        <div className="flex flex-wrap gap-20 px-16 justify-center w-full pb-20">
           {serviceBody[selectedCategory]?.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col w-72 items-center gap-6 border border-1 border-darkText justify-between pb-2 bg-beige bg-opacity-60 hover:scale-125 transition-transform duration-300 rounded-b-lg"
+              className="flex flex-col w-60 h-full items-center gap-6 border border-1 border-darkText justify-between pb-2 bg-beige bg-opacity-60 hover:scale-125 transition-transform duration-300 rounded-b-lg"
             >
               <Link
                 href={`traitments/beautyTreatmentsPrice/${item.id}`}

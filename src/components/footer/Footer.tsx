@@ -28,7 +28,7 @@ function Footer() {
   };
 
   return (
-    <div className="h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-xs font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-base ">
+    <div className="h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-sm font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-base ">
       <div className="flex flex-col gap-1 text-center">
         <p>14 rue Colombet Solle</p>
         <p>42 270 Saint-Just-Saint-Rambert</p>
@@ -57,7 +57,7 @@ function Footer() {
                 width={30}
                 height={30}
                 alt="logo instagram"
-                className="hover:scale-125 transition-transform duration-300"
+                className="zoom"
               />
             </Link>
             <Link
@@ -69,7 +69,7 @@ function Footer() {
                 width={30}
                 height={30}
                 alt="logo facebook"
-                className="hover:scale-125 transition-transform duration-300"
+                className="zoom"
               />
             </Link>
           </div>

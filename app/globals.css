@@ -9,11 +9,11 @@
 }
 
 .buttonConection {
-  @apply bg-terracota text-white py-3 rounded-tl-2xl;
+  @apply bg-terracota text-white;
 }
 
 .inputConection {
-  @apply border-b border-darkText w-full bg-transparent;
+  @apply border-b border-darkText w-full bg-transparent font-imprima p-2 text-base;
 }
 
 .contact {
@@ -22,4 +22,16 @@
 
 .labelContact {
   @apply flex flex-col;
+}
+
+.buttonProducts {
+  @apply w-full sm:flex sm:justify-start sm:items-center text-base sm:text-xl p-0 sm:pl-6 sm:pt-6 hover:text-terracota;
+}
+
+.buttonHover {
+  @apply bg-white text-terracota border border-terracota hover:bg-terracota hover:text-white rounded-tl-2xl py-3;
+}
+
+.zoom {
+  @apply hover:scale-125 transition-transform duration-300;
 }

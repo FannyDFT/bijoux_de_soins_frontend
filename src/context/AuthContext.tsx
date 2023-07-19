@@ -2,13 +2,12 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { TUSER } from "../types/TUser";
-import { Router } from "next/router";
 
 type TCredentials = {
   email: string;
   password: string;
 };
-// });
+
 interface IUserContext {
   user: TUSER | null;
   isAuth: boolean;
@@ -26,7 +25,6 @@ type AuthState = {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
-  console.log(URL);
 
   const [authState, setAuthState] = useState<AuthState>({
     user: null,
@@ -40,6 +38,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         email,
         password,
       });
+
       setAuthState(() => ({ isAuth: true, user: data, isLoading: false }));
       const token = headers["Authorization"];
       console.log(headers["Authorization"]);
