@@ -40,10 +40,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       setAuthState(() => ({ isAuth: true, user: data, isLoading: false }));
-      const token = headers["Authorization"];
-      console.log(headers["Authorization"]);
+      const token = headers["authorization"];
 
-      console.log("Token before storing:", token);
       axios.defaults.headers.common["authorization"] = token;
       localStorage.setItem("token", token || "");
     } catch (error) {
@@ -71,7 +69,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             Authorization:
               typeof window !== "undefined" && localStorage.getItem("token"),
           },
-        },
+        }
       )
       .then((res) => {
         setAuthState(() => ({
@@ -86,7 +84,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setAuthState((state) => ({
           ...state,
           isLoading: false,
-        })),
+        }))
       );
   }, []);
 
