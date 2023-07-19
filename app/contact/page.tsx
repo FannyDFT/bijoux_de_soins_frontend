@@ -72,7 +72,7 @@ function Contact() {
   return (
     <div className="w-full flex flex-col pt-12">
       <div className="flex w-full">
-        <div className=" flex flex-col items-center justify-center flex-1 w-1/2">
+        <div className=" sm:flex sm:flex-col sm:items-center sm:justify-center sm:flex-1 w-1/2 hidden">
           <Image
             src={makeUpContact}
             width={230}
@@ -97,7 +97,7 @@ function Contact() {
                 type="text"
                 value={infos.firstname}
                 name="firstname"
-                className="inputConection p-2"
+                className="inputConection"
                 onChange={handleChangeInput}
               />
             </label>
@@ -107,7 +107,7 @@ function Contact() {
                 type="text"
                 value={infos.lastname}
                 name="lastname"
-                className="inputConection p-2"
+                className="inputConection "
                 onChange={handleChangeInput}
               />
             </label>
@@ -117,25 +117,25 @@ function Contact() {
                 type="text"
                 name="email"
                 value={infos.email}
-                className="inputConection p-2"
+                className="inputConection "
                 onChange={handleChangeInput}
               />
             </label>
-            <label
-              htmlFor="message"
-              className="contact labelContact inputConection"
-            >
+            <label htmlFor="message" className="contact labelContact ">
               <textarea
-                className="inputConection p-4"
+                className="inputConection"
+                cols={10}
+                rows={5}
                 value={infos.message}
                 name="message"
                 onChange={handleChangeTextarea}
+                placeholder="Message..."
               ></textarea>
             </label>
 
             <button
               type="button"
-              className="buttonConection mt-9"
+              className="buttonHover mt-9"
               onClick={sendEmail}
             >
               Envoyer un message

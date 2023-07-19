@@ -102,7 +102,7 @@ function Navbar() {
       ) : (
         <div className="flex items-center justify-between p-4">
           <div>
-            <Link href="/signin" className="flex items-center gap-2 ">
+            <Link href="/auth/signup" className="flex items-center gap-2 ">
               <Image src={conection} width={35} height={35} alt="50" />
               <p>Se Connecter</p>
             </Link>

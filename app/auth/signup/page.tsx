@@ -63,7 +63,7 @@ function Signup() {
         <h3 className="text-xl font-imprima">
           Déjà membre ?{" "}
           <Link href="/auth/signin">
-            <button className="textColor" type="button">
+            <button className="textColor zoom pl-4" type="button">
               Se connecter
             </button>
           </Link>
@@ -101,7 +101,7 @@ function Signup() {
           <Link href="/auth/signin">
             <button
               type="button"
-              className="buttonConection flex w-full justify-center mt-10"
+              className="buttonHover flex w-full justify-center mt-10 "
               onClick={handleSubmit}
             >
               S&apos;inscrire

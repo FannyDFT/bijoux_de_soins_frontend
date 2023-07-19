@@ -5,6 +5,7 @@ import { IColorations } from "@/types/IColorations";
 import Image from "next/image";
 import cils from "../../../public/assets/cil.jpg";
 import time from "../../../public/assets/time.png";
+import { formatPrice } from "@/service/utils";
 
 function BrowAndLashColoringPricesPage() {
   const [servicesData, setServicesData] = useState<{
@@ -25,12 +26,6 @@ function BrowAndLashColoringPricesPage() {
     fetchData();
   }, []);
 
-  const formatPrice = (price: string) => {
-    const numericPrice = parseFloat(price); // Convertir en nombre
-    const roundedPrice = numericPrice.toFixed(2); // Arrondir à deux décimales
-    return roundedPrice; // Retourner la valeur arrondie
-  };
-
   const eyesBrow = servicesData.colorationsPrices.find(
     (coloration) => coloration.id === "1d938131-7448-49f0-8e81-1a4089c039b3",
   );
@@ -45,7 +40,7 @@ function BrowAndLashColoringPricesPage() {
         Coloration des Cils & Sourcils
       </h2>
 
-      <div className="flex flex-col  sm:flex-row w-full items-center p-28 gap-10 sm:gap-6">
+      <div className="flex flex-col sm:flex-row w-full items-center sm:p-28 p-24 gap-10 sm:gap-6">
         <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70">
           {eyesBrow && (
             <div className="flex flex-col w-full items-center gap-10 font-ibarra">
@@ -56,10 +51,10 @@ function BrowAndLashColoringPricesPage() {
                 alt={eyesBrow.name}
                 className="w-full rounded-lg border border-1 border-darkText"
               />
-              <h2 className="text-terracota text-3xl sm:text-xl w-full flex justify-center">
+              <h2 className="text-terracota text-2xl sm:text-xl w-full flex justify-center">
                 {eyesBrow.name}
               </h2>
-              <p className="text-2xl sm:text-lg text-center px-5">
+              <p className="text-xl sm:text-lg text-center px-5">
                 {eyesBrow.description}
               </p>
               <div className="flex w-full justify-between px-5 pb-5 text-2xl sm:text-lg">
@@ -72,7 +67,7 @@ function BrowAndLashColoringPricesPage() {
             </div>
           )}
         </div>
-        <div className="flex-1 font-imprima text-center text-2xl sm:text-lg text-terracota">
+        <div className="flex-1 font-imprima text-left sm:text-center text-xl sm:text-lg text-terracota">
           <p className="px-4">
             La coloration des sourcils & des cils est la solution idéale pour
             avoir l&apos;air maquillé sans le moindre effort. Ce soin express

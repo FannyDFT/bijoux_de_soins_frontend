@@ -57,48 +57,48 @@ function ProductPage() {
           Les Produits
         </h2>
       </div>
-      <div className="flex">
-        <div className="bg-beige bg-opacity-40 w-1/4 gap-8 pb-10 border-r-2 border-darkText flex flex-col justify-start items-start font-imprima">
+      <div className="flex flex-col sm:flex sm:flex-row">
+        <div className="bg-beige bg-opacity-40 overflow-x-scroll sm:overflow-hidden w-full sm:w-1/4 gap-10 sm:gap-8 pb-10 p-6 sm:p-0 border-r-2 border-darkText flex flex-row sm:flex sm:flex-col sm:justify-start items:center sm:items-start font-imprima">
           <button
-            className="w-full flex justify-start items-center text-xl pl-6 pt-6 hover:text-terracota "
+            className="buttonProducts"
             onClick={() => handleCategoryChange("pulpeProducts")}
           >
             Pulpe de vie
           </button>
           <button
-            className="w-full flex justify-start items-center text-xl pl-6 hover:text-terracota "
+            className="buttonProducts"
             onClick={() => handleCategoryChange("referenceProducts")}
           >
             Référence Cosmétique
           </button>
           <button
-            className="w-full flex justify-start items-center text-xl pl-6 hover:text-terracota "
+            className="buttonProducts"
             onClick={() => handleCategoryChange("zaoProducts")}
           >
             Zao Make Up
           </button>
           <button
-            className="w-full flex justify-start items-center text-xl pl-6 hover:text-terracota "
+            className="buttonProducts"
             onClick={() => handleCategoryChange("laboratoireProducts")}
           >
             Laboratoires de Biarritz
           </button>
           <button
-            className="w-full flex justify-start items-center text-xl pl-6 hover:text-terracota "
+            className="buttonProducts"
             onClick={() => handleCategoryChange("luxyProducts")}
           >
             Luxy Cils
           </button>
         </div>
-        <div className="h-screen w-3/4 bg-beige bg-opacity-70 pb-10 ">
+        <div className="h-screen w-full sm:w-3/4 bg-beige bg-opacity-70 pb-10 ">
           <div className=" h-full w-full overflow-y-scroll">
-            <div className="grid grid-cols-4 gap-16 p-10 w-full h-full ">
+            <div className="grid grid-cols-1 sm:grid sm:grid-cols-4 gap-16 px-32 py-16 sm:p-10 w-full h-full ">
               {selectedCategory &&
                 productsData[selectedCategory] &&
                 productsData[selectedCategory].map((item) => (
                   <div
                     key={item.id}
-                    className="col-span-1 h-full border bg-opacity-50 border-darkText rounded-t-lg hover:scale-125 transition-transform duration-300"
+                    className="col-span-1 h-72 border bg-opacity-50 border-darkText rounded-t-lg hover:scale-110 transition-transform duration-300"
                   >
                     <ProductCard
                       name={item.name}

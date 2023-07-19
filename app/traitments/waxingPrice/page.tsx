@@ -32,7 +32,7 @@ function WaxingPrice() {
         Les Epilations
       </h2>
 
-      <div className="w-full flex justify-center gap-20 font-ibarra text-xl ">
+      <div className="w-full flex justify-center gap-6 sm:gap-20 font-ibarra text-xl ">
         <a
           href="#visage"
           className="hover:scale-125 transition-transform duration-300 hover:text-terracota"
@@ -54,10 +54,10 @@ function WaxingPrice() {
       </div>
 
       <div className="flex flex-col w-full items-center gap-10 font-ibarra text-lg">
-        <h3 className="text-terracota font-imprima text-xl">
+        <h3 className="text-terracota font-imprima text-lg sm:text-xl text-center">
           Pose de masque pendant l&apos;épilation
         </h3>
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center text-sm sm:text-base">
           <div className="flex flex-col gap-4 bg-whiteText py-6 items-center text-center sm:text-left w-3/4 sm:w-1/2 border border-1 border-darkText px-4 sm:px-0">
             <p className="">Masque film naturel Hydra Repulpant 7.50€</p>
             <p>Masque naturel Purifiant Oxygénant 7.50€</p>
@@ -71,12 +71,12 @@ function WaxingPrice() {
         <div className="flex flex-col items-center gap-10 w-full">
           <h4
             id="visage"
-            className="flex justify-center text-terracota font-imprima text-2xl border-b border-darkText pb-2"
+            className="flex justify-center text-terracota font-imprima text-xl sm:text-2xl border-b border-darkText pb-2"
           >
             Epilations Visage
           </h4>
 
-          <div className="flex flex-col w-2/3 h-full">
+          <div className="flex flex-col w-2/3 h-full text-sm sm:text-base">
             {servicesData.faceServicesData.map((service) => (
               <div
                 key={service.id}
@@ -99,12 +99,12 @@ function WaxingPrice() {
         <div className="flex flex-col items-center gap-10 w-full">
           <h4
             id="corps"
-            className="flex justify-center  text-terracota font-imprima text-2xl border-b border-darkText pb-2"
+            className="flex justify-center  text-terracota font-imprima text-xl sm:text-2xl border-b border-darkText pb-2"
           >
             Epilations Corps
           </h4>
 
-          <div className="flex flex-col w-2/3 h-full">
+          <div className="flex flex-col w-2/3 h-full text-sm sm:text-base">
             {servicesData.bodyServicesData.map((service) => (
               <div
                 key={service.id}
@@ -127,12 +127,12 @@ function WaxingPrice() {
         <div className="flex flex-col items-center gap-10 w-full">
           <h4
             id="forfait"
-            className="flex justify-center text-terracota font-imprima text-2xl border-b border-darkText pb-2"
+            className="flex justify-center text-terracota font-imprima text-xl sm:text-2xl border-b border-darkText pb-2"
           >
             Forfaits Epilations
           </h4>
 
-          <div className="flex flex-col w-2/3 h-full">
+          <div className="flex flex-col w-2/3 h-full v">
             {servicesData.forfaitServicesData.map((service) => (
               <div
                 key={service.id}
