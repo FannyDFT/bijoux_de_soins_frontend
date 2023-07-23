@@ -1,33 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import garbage from "../../../public/assets/poubelle.png";
 import update from "../../../public/assets/editer.png";
 import { formatPrice } from "@/service/utils";
-import axios from "axios";
 
 interface IProduct {
   id: string;
   name: string;
   image: string;
   price: string;
-  onDelete: () => void;
+  handleShowModal: () => void;
 }
 
-function ProductsCard({ name, image, price, id, onDelete }: IProduct) {
-  const handleDelete = () => {
-    onDelete();
-  };
-
-  // const handleDelete = async () => {
-  //   try {
-  //     await axios.delete(`${URL}/product/${id}`);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
+function ProductsCard({ name, image, price, handleShowModal }: IProduct) {
   return (
     <div className="flex flex-wrap justify-around gap-6 pb-4 items-center border-b border-darkText w-5/6 font-imprima ">
       <p className="flex-1">{name}</p>
@@ -39,13 +26,20 @@ function ProductsCard({ name, image, price, id, onDelete }: IProduct) {
         className="w-10 h-10"
       />
       <p className="flex-1">Tarif: {formatPrice(price)}€</p>
-      <Image src={update} width={20} height={20} alt="update" />
+      <Image
+        src={update}
+        width={20}
+        height={20}
+        alt="update"
+        className=" cursor-pointer"
+        onClick={handleShowModal}
+      />
       <Image
         src={garbage}
         width={20}
         height={20}
         alt="delete"
-        onClick={handleDelete}
+        className=" cursor-pointer"
       />
     </div>
   );

@@ -6,54 +6,24 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/productsDashboard/ProductsCard";
 import more from "../../../public/assets/plus.png";
 import Image from "next/image";
-import axios from "axios";
-// import Modal from "../Modal";
-// import { v4 as uuidv4 } from "uuid";
+import Modal from "../Modal";
 
 function ProductsList() {
-  const URL = process.env.NEXT_PUBLIC_SERVER_URL;
   const [products, setProducts] = useState<IProductsData[]>([]);
   const [selectedProductCategory, setSelectedProductCategory] = useState("");
   const [showModal, setShowModal] = useState(false);
-  console.log(products);
-  console.log(selectedProductCategory);
 
+  //fonction pour l'affichage de la modale
   const handleShowModal = () => {
     setShowModal(true);
   };
 
+  //fonction qui réccupère la saisie pour sélectionner un produit
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedProductCategory(e.target.value);
   };
 
-  const handleDelete = async (productId: string) => {
-    try {
-      await axios.delete(`${URL}/product/${productId}`); // Appeler la fonction de suppression avec l'ID du produit
-      setProducts((prevProducts) =>
-        prevProducts.filter((product) => product.id !== productId),
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //fonction permettant d'ajouter un produit à la base de données
-  // const handleAddProduct = async (productData) => {
-  //   try {
-  //     const newProduct = {
-  //       id: uuidv4(),
-  //       ...productData,
-  //     };
-
-  //     const response = await axios.post(`${URL}/product`, newProduct);
-
-  //     setProducts((prevProducts) => [...prevProducts, newProduct]);
-  //     setShowModal(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
+  //fonction qui réccupère tous les produits
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,27 +39,27 @@ function ProductsList() {
   }, []);
 
   return (
-    <>
+    <div className="h-full pt-8 flex flex-col gap-10 justify-center">
       <div className="w-full h-1/5 flex justify-center">
         <input
           type="text"
           onChange={handleChangeInput}
-          placeholder="Rechercher"
-          className="border border-darkText"
+          placeholder="Rechercher..."
+          className="border border-darkText py-1 px-2"
         />
       </div>
-      <div className="w-full h-96 overflow-y-scroll flex flex-col gap-8 items-center">
+      <div className="w-full h-96  overflow-y-scroll no-scrollbar flex flex-col gap-8 items-center">
         {products
-          // .filter((product) => {
-          //   const categoryName = product.name.toLowerCase();
-          //   const selectedCategory = selectedProductCategory?.toLowerCase();
+          .filter((product) => {
+            const categoryName = product.name.toLowerCase();
+            const selectedCategory = selectedProductCategory?.toLowerCase();
 
-          //   if (selectedCategory) {
-          //     return categoryName.includes(selectedCategory);
-          //   }
+            if (selectedCategory) {
+              return categoryName.includes(selectedCategory);
+            }
 
-          //   return true;
-          // })
+            return true;
+          })
           .map((product) => (
             <ProductCard
               key={product.id}
@@ -97,7 +67,7 @@ function ProductsList() {
               name={product.name}
               image={product.image}
               price={product.price}
-              onDelete={() => handleDelete(product.id)}
+              handleShowModal={handleShowModal}
             />
           ))}
       </div>
@@ -112,17 +82,10 @@ function ProductsList() {
           className="cursor-pointer"
         />
       </div>
-      <div className="absolute w-full h-2/3">
-        {showModal && (
-          <Modal
-            setProducts={setProducts}
-            setShowModal={setShowModal}
-            setSelectedProductCategory={setSelectedProductCategory}
-            handleAddProduct={handleAddProduct}
-          />
-        )}
+      <div className=" w-full h-3/4">
+        {showModal && <Modal setShowModal={setShowModal} />}
       </div>
-    </>
+    </div>
   );
 }
 
