@@ -2,11 +2,7 @@
 import axios from "axios";
 import React, { ChangeEvent, useState } from "react";
 
-interface IProps {
-  refresh: () => void;
-}
-
-function Modal({ refresh }: IProps) {
+function Modal({ setShowModal }) {
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
   const [file, setFile] = useState<File | null>();
   console.log("file:", file);
@@ -47,16 +43,15 @@ function Modal({ refresh }: IProps) {
 
         categoryId: productData.category, // Utiliser la valeur de category pour categoryId
       })
-
       .then((res) => {
         console.log(res.data);
+
         handleImageUpload(res.data.id);
-        console.log(res.data);
+        setShowModal(false);
       })
       .catch((error) => console.error(error));
   };
 
-  //fonction permettant de récupérer l'URL de l'image
   //Fonction qui permet d'afficher l'image et les données
   const handleImageUpload = (productId: string) => {
     console.log(productId);
@@ -77,9 +72,6 @@ function Modal({ refresh }: IProps) {
         })
         .catch((error) => {
           console.error(error);
-        })
-        .then(() => {
-          refresh();
         });
     }
   };
@@ -132,7 +124,11 @@ function Modal({ refresh }: IProps) {
             name="image"
             placeholder="Lien de l'image"
             className="border border-darkText w-3/4 text-white"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e) => {
+              if (e.target.files) {
+                setFile(e.target.files[0]);
+              }
+            }}
           />
         </label>
         <label htmlFor="categoryId" className="labelProducts">
