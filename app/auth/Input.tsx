@@ -5,7 +5,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   name: string;
-  value: string;
+  // value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -14,7 +14,7 @@ function Input({
   type,
   placeholder,
   name,
-  value,
+  // value,
   onChange,
 }: InputProps) {
   return (
@@ -24,7 +24,7 @@ function Input({
         className="inputConection"
         type={type}
         placeholder={placeholder}
-        value={value}
+        // value={value}
         name={name}
         onChange={onChange}
       />

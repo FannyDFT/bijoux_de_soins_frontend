@@ -2,14 +2,16 @@
 import axios from "axios";
 import React, { ChangeEvent, useState } from "react";
 
-interface IProps {
-  refresh: () => void;
+interface ModalProps {
+  setShowModal: (showModal: boolean) => void;
+  fetchData: () => Promise<void>;
+  // Autres props si nécessaire...
 }
 
-function Modal({ refresh }: IProps) {
+function Modal({ setShowModal, fetchData }: ModalProps) {
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
   const [file, setFile] = useState<File | null>();
-  console.log("file:", file);
+
   //State pour stocker les saisies du form
   const [productData, setProductData] = useState({
     name: "",
@@ -20,8 +22,6 @@ function Modal({ refresh }: IProps) {
     categoryId: "",
     category: "",
   });
-
-  console.log("productData:", productData);
 
   //fonction me permettant de récupérer les saisies du formulaire
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,25 +47,23 @@ function Modal({ refresh }: IProps) {
 
         categoryId: productData.category, // Utiliser la valeur de category pour categoryId
       })
-
       .then((res) => {
         console.log(res.data);
+
         handleImageUpload(res.data.id);
-        console.log(res.data);
+        setShowModal(false);
+        fetchData();
       })
       .catch((error) => console.error(error));
   };
 
-  //fonction permettant de récupérer l'URL de l'image
   //Fonction qui permet d'afficher l'image et les données
   const handleImageUpload = (productId: string) => {
-    console.log(productId);
-
     if (file) {
       const formData = new FormData();
 
       formData.append("image", file as File);
-      console.log("file", file);
+
       axios
         .post(`${URL}/product/${productId}/upload/image`, formData, {
           headers: {
@@ -77,9 +75,6 @@ function Modal({ refresh }: IProps) {
         })
         .catch((error) => {
           console.error(error);
-        })
-        .then(() => {
-          refresh();
         });
     }
   };
@@ -132,7 +127,11 @@ function Modal({ refresh }: IProps) {
             name="image"
             placeholder="Lien de l'image"
             className="border border-darkText w-3/4 text-white"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e) => {
+              if (e.target.files) {
+                setFile(e.target.files[0]);
+              }
+            }}
           />
         </label>
         <label htmlFor="categoryId" className="labelProducts">

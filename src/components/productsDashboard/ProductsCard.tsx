@@ -12,9 +12,17 @@ interface IProduct {
   image: string;
   price: string;
   handleShowModal: () => void;
+  deleteProduct: (productId: string) => void;
 }
 
-function ProductsCard({ name, image, price, handleShowModal }: IProduct) {
+function ProductsCard({
+  name,
+  image,
+  price,
+  id,
+  handleShowModal,
+  deleteProduct,
+}: IProduct) {
   return (
     <div className="flex flex-wrap justify-around gap-6 pb-4 items-center border-b border-darkText w-5/6 font-imprima ">
       <p className="flex-1">{name}</p>
@@ -39,7 +47,8 @@ function ProductsCard({ name, image, price, handleShowModal }: IProduct) {
         width={20}
         height={20}
         alt="delete"
-        className=" cursor-pointer"
+        className=" cursor-pointer "
+        onClick={() => deleteProduct(id)}
       />
     </div>
   );
