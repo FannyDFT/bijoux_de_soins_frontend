@@ -7,6 +7,7 @@ import ProductCard from "../../components/productsDashboard/ProductsCard";
 import more from "../../../public/assets/plus.png";
 import Image from "next/image";
 import Modal from "../Modal";
+import axios from "axios";
 
 function ProductsList() {
   const [products, setProducts] = useState<IProductsData[]>([]);
@@ -24,19 +25,38 @@ function ProductsList() {
   };
 
   //fonction qui réccupère tous les produits
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getAll();
-        const allProducts = Object.values(data.allProducts).flat();
-        setProducts(allProducts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
 
+  const fetchData = async () => {
+    try {
+      const data = await getAll();
+      const allProducts = Object.values(data.allProducts).flat();
+      setProducts(allProducts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
+
+  const deleteProduct = async (productId: string) => {
+    const URL = process.env.NEXT_PUBLIC_SERVER_URL;
+    console.log(URL);
+    console.log(productId);
+
+    try {
+      // Call your axiosTools function for deleting the product by ID
+      await axios.delete(`${URL}/product/${productId}`);
+
+      // After successful deletion, update the products state by filtering out the deleted product
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== productId),
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="h-full pt-8 flex flex-col gap-10 justify-center">
@@ -68,6 +88,7 @@ function ProductsList() {
               image={product.image}
               price={product.price}
               handleShowModal={handleShowModal}
+              deleteProduct={deleteProduct}
             />
           ))}
       </div>
@@ -83,7 +104,9 @@ function ProductsList() {
         />
       </div>
       <div className=" w-full h-3/4">
-        {showModal && <Modal setShowModal={setShowModal} />}
+        {showModal && (
+          <Modal setShowModal={setShowModal} fetchData={fetchData} />
+        )}
       </div>
     </div>
   );

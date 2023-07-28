@@ -11,7 +11,15 @@ import { ToastContainer } from "react-toastify";
 function Signup() {
   const URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
-  const initialFormState = {
+  interface FormValues {
+    firstname: string;
+    lastname: string;
+    email: string;
+    password: string;
+    phone: string;
+  }
+
+  const initialFormState: FormValues = {
     firstname: "",
     lastname: "",
     email: "",
@@ -19,7 +27,7 @@ function Signup() {
     phone: "",
   };
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormValues>({
     firstname: "",
     lastname: "",
     email: "",
@@ -94,7 +102,7 @@ function Signup() {
               type={item.type}
               name={item.name}
               placeholder={item.placeholder}
-              value={form[item.name]}
+              // value={form[item.name]}
               onChange={handleChangeInput}
             />
           ))}

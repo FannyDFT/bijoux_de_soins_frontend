@@ -45,6 +45,8 @@ function BeautyTreatmentsPrice() {
     bodyPackage: [],
   });
 
+  console.log("serviceBody:", serviceBody);
+
   const [selectedCategory, setSelectedCategory] =
     useState<CategoryType>("bodyCare");
 
