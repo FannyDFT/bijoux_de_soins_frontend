@@ -1,13 +1,12 @@
 "use client";
 import { AppProps } from "next/app";
-// import { MantineProvider } from "@mantine/core";
 
 import Descriptions from "@/components/homePage/Descriptions";
 import Appointment from "@/components/homePage/appointments/Appointment";
-// import CarouselPrestations from "@/components/homePage/carousel/CarouselPrestations";
 import PrestationsDescription from "@/components/homePage/prestations/PrestationsDescription";
 import photoHome from "../public/assets/photoHome.png";
 import Image from "next/image";
+import CarouselPrestations from "@/components/homePage/carousel/CarouselPrestations";
 
 function page(props: AppProps) {
   const { Component, pageProps } = props;
@@ -28,7 +27,7 @@ function page(props: AppProps) {
       <Descriptions />
       <PrestationsDescription />
       <Appointment />
-      {/* <CarouselPrestations /> */}
+      <CarouselPrestations />
     </div>
 
     // </MantineProvider>
