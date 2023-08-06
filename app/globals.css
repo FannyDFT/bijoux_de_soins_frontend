@@ -58,3 +58,7 @@
 .inputProducts {
   @apply border border-darkText w-3/4 px-1 py-1;
 }
+
+.containerFooter {
+  @apply h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-sm font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-base;
+}

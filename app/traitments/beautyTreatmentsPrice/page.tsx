@@ -32,6 +32,8 @@ function BeautyTreatmentsPrice() {
     faceCareCategory: [],
     bodyCareCategory: [],
   });
+  //Contient chaque type de soin (corps,)
+  console.log("serviceBodyCategory:", serviceBodyCategory);
 
   type CategoryType = "faceCare" | "bodyCare" | "bodyPackage";
 
@@ -65,6 +67,7 @@ function BeautyTreatmentsPrice() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAll();
+      console.log(data);
 
       setServiceBodyCategory({
         bodyPackageCategory: data.bodyPackageCategory,
