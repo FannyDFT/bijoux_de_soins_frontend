@@ -49,19 +49,16 @@ export const getAll = async () => {
           (category: ICare) =>
             category.id === "4e12a864-21ec-4561-bdec-fb94100c9e51",
         );
-        console.log("bodyPackegeCategory", bodyPackageCategory);
 
         const faceCareCategory = categories.find(
           (category: ICare) =>
             category.id === "1c1a30a2-da52-40e3-a698-109ff2a8047a",
         );
-        console.log("faceCareCategory:", faceCareCategory);
 
         const bodyCareCategory = categories.find(
           (category: ICare) =>
             category.id === "0e896296-7745-4267-ac1b-bc3bc3fe983a",
         );
-        console.log("bodyCareCategory:", bodyCareCategory);
 
         return {
           services: filteredCategoriesOfServices,
@@ -122,17 +119,14 @@ export const getAll = async () => {
     const faceCare = await getServicesByCategory(
       "1c1a30a2-da52-40e3-a698-109ff2a8047a",
     );
-    console.log("faceCare:", faceCare);
 
     const bodyCare = await getServicesByCategory(
       "0e896296-7745-4267-ac1b-bc3bc3fe983a",
     );
-    console.log("bodyCare:", bodyCare);
 
     const bodyPackage = await getServicesByCategory(
       "a4d06671-7d9c-4c73-979b-76112635bb0b",
     );
-    console.log("bodyPackage:", bodyPackage);
 
     const getAllProduct = async (categoryId: string) => {
       try {

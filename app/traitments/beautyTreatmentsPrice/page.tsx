@@ -2,16 +2,17 @@
 
 import BeautyTreatments from "@/components/soins/BeautyTreatments";
 import { getAll } from "@/service/axiosTools";
+import { ICategoryService } from "@/types/ICategoryServcice";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-interface ICare {
-  id: string;
-  name: string;
-  description?: string;
-  image?: string;
-  type?: string;
-}
+// interface ICare {
+//   id: string;
+//   name: string;
+//   description?: string;
+//   image?: string;
+//   type?: string;
+// }
 
 interface IBodyService {
   id: string;
@@ -24,9 +25,9 @@ interface IBodyService {
 
 function BeautyTreatmentsPrice() {
   const [serviceBodyCategory, setServiceBodyCategory] = useState<{
-    bodyPackageCategory: ICare[];
-    faceCareCategory: ICare[];
-    bodyCareCategory: ICare[];
+    bodyPackageCategory: ICategoryService[];
+    faceCareCategory: ICategoryService[];
+    bodyCareCategory: ICategoryService[];
   }>({
     bodyPackageCategory: [],
     faceCareCategory: [],
@@ -69,11 +70,11 @@ function BeautyTreatmentsPrice() {
       const data = await getAll();
       console.log(data);
 
-      setServiceBodyCategory({
-        bodyPackageCategory: data.bodyPackageCategory,
-        faceCareCategory: data.faceCareCategory,
-        bodyCareCategory: data.bodyCareCategory,
-      });
+      // setServiceBodyCategory({
+      //   bodyPackageCategory: data.bodyPackageCategory,
+      //   faceCareCategory: data.faceCareCategory,
+      //   bodyCareCategory: data.bodyCareCategory,
+      // });
       setServiceBody({
         faceCare: data.faceCare,
         bodyCare: data.bodyCare,
