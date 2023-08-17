@@ -8,7 +8,7 @@ import photoHome from "../public/assets/photoHome.png";
 import Image from "next/image";
 import CarouselPrestations from "@/components/homePage/carousel/CarouselPrestations";
 
-function page(props: AppProps) {
+function Page(props: AppProps) {
   const { Component, pageProps } = props;
 
   return (
@@ -31,4 +31,4 @@ function page(props: AppProps) {
   );
 }
 
-export default page;
+export default Page;
