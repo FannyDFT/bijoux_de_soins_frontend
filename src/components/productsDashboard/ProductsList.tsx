@@ -104,7 +104,7 @@ function ProductsList() {
           height={40}
           alt="more"
           onClick={handleShowModal}
-          className="cursor-pointer"
+          className="cursor-pointer zoom"
         />
       </div>
       <div className=" w-full h-3/4">
