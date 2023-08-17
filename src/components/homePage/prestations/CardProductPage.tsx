@@ -9,12 +9,12 @@ interface ICardPrestation {
 
 function CardProductPage({ name, description, image }: ICardPrestation) {
   return (
-    <div className="w-1/2 flex flex-col">
-      <div className=" flex ">
-        <h1>{name}</h1>
-        <Image src={image} width={100} height={100} alt={name} />
+    <div className="w-3/4 flex flex-col gap-10 items-center h-full">
+      <div className="flex items-center font-ibarra text-3xl italic justify-between h-1/5 py-16">
+        <h1 className="pr-10">{name}</h1>
+        <Image src={image} width={120} height={120} alt={name} />
       </div>
-      <p>{description}</p>
+      <p className="h-4/5 text-center font-imprima text-lg">{description}</p>
     </div>
   );
 }
