@@ -44,7 +44,7 @@ function ProductsCard({
         width={20}
         height={20}
         alt="update"
-        className=" cursor-pointer"
+        className="zoom cursor-pointer"
         onClick={handleShowModal}
       />
       <Image
@@ -52,7 +52,7 @@ function ProductsCard({
         width={20}
         height={20}
         alt="delete"
-        className=" cursor-pointer "
+        className="zoom cursor-pointer "
         onClick={() => setShowModalConfirmation(true)}
       />
       <div className=" w-full h-3/4">
