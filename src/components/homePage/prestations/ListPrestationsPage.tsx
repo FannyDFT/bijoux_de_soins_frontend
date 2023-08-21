@@ -30,14 +30,14 @@ function ListPrestationsPage() {
       <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-3xl font-ibarra">
         Les Soins
       </h2>
-      <div className="py-14 h-full p-0 sm:px-14 bg-background flex flex-col sm:flex-row gap-10 sm:gap-10  justify-center">
+      <div className="py-14 w-full px-14 h-full p-0 sm:px-14 bg-background flex flex-col sm:flex-row gap-10 sm:gap-10  justify-center">
         {prestations.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col flex-1 bg-beige h-auto gap-6 rounded-t-lg border border-1 border-darkText hover:scale-105 transition-transform duration-300"
+            className="flex flex-col flex-1 bg-beige h-auto gap-6 rounded-t-lg border border-1 border-darkText hover:scale-105 transition-transform duration-300 w-full"
           >
             {item.id === "7e457b03-8ba8-4760-a6e9-9edb1b898bc4" && (
-              <Link href="/traitments/waxingPrice" className="h-full">
+              <Link href="/traitments/waxingPrice" className="h-full w-full">
                 <Image
                   src={item.image}
                   width={330}
@@ -45,8 +45,8 @@ function ListPrestationsPage() {
                   alt={item.name}
                   className="rounded-t-lg w-full "
                 />
-                <div className="px-6 py-6 flex flex-col gap-6 h-56">
-                  <h2 className="font-MrsSaintDelafield text-3xl sm:text-3xl">
+                <div className="px-6 py-6 flex flex-col gap-6 h-56 w-full">
+                  <h2 className="font-MrsSaintDelafield text-3xl sm:text-3xl w-full">
                     {item.name}
                   </h2>
                   <p className="font-imprima text-md sm:text-base overflow-y-scroll no-scrollbar">
