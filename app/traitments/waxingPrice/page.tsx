@@ -5,6 +5,7 @@ import { IServicesWaxing } from "../../../src/types/IServicesData";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
 import { formatPrice } from "@/service/utils";
+import Banniere from "../../../src/components/Banniere";
 
 function WaxingPrice() {
   const [servicesData, setServicesData] = useState<{
@@ -28,11 +29,9 @@ function WaxingPrice() {
 
   return (
     <div className=" w-full flex flex-col bg-background gap-10 h-auto">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-4xl font-ibarra">
-        Les Epilations
-      </h2>
+      <Banniere title="Les Epilations" />
 
-      <div className="w-full flex justify-center gap-6 sm:gap-20 font-ibarra text-xl ">
+      <div className="w-full flex justify-center gap-6 sm:gap-20 font-imprima text-2xl ">
         <a
           href="#visage"
           className="hover:scale-125 transition-transform duration-300 hover:text-terracota"

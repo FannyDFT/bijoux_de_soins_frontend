@@ -15,7 +15,7 @@ function page() {
           width={1000}
           height={300}
           alt="photo home"
-          className="w-full h-auto"
+          className="w-full h-56 sm:h-auto"
         />
         {/* <h2 className="font-MrsSaintDelafield text-white">Institut Bijoux de Soins</h2> */}
       </div>
