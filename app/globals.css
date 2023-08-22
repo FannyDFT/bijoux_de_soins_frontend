@@ -62,3 +62,7 @@
 .containerFooter {
   @apply h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-sm font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-base;
 }
+
+.activeButton {
+  @apply text-terracota;
+}

@@ -3,6 +3,7 @@ import { getAll } from "@/service/axiosTools";
 import { IProductsData } from "@/types/IProductsData";
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import Banniere from "../Banniere";
 
 type CategoryType =
   | "laboratoireProducts"
@@ -53,9 +54,7 @@ function ProductPage() {
   return (
     <div className="w-full h-full flex flex-col font-imprima">
       <div>
-        <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-3xl font-ibarra">
-          Les Produits
-        </h2>
+        <Banniere title="Les Produits" />
       </div>
       <div className="flex flex-col sm:flex sm:flex-row w-full sm:w-full h-full">
         <div className="w-full h-24 sm:h-screen sm:w-1/4 bg-beige bg-opacity-40 overflow-x-scroll overflow-hidden border-r-2 border-darkText flex flex-row gap-5 sm:flex sm:flex-col sm:items-start sm:gap-10 font-imprima">

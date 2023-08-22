@@ -122,7 +122,7 @@ function Navbar() {
       )}
       {/*Mobile Menu*/}
       {isMobile && isOpenMenu && (
-        <div className="flex flex-col gap-4 pl-16 font-ibarra text-xl absolute bg-white w-full h-52 ">
+        <div className="flex flex-col gap-4 pl-16 font-ibarra text-xl absolute bg-white w-full h-56">
           <Link href="/" onClick={toggleMenu}>
             Accueil
           </Link>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import cils from "../../../public/assets/cil.jpg";
 import time from "../../../public/assets/time.png";
 import { formatPrice } from "@/service/utils";
+import Banniere from "@/components/Banniere";
 
 function BrowAndLashColoringPricesPage() {
   const [servicesData, setServicesData] = useState<{
@@ -36,12 +37,10 @@ function BrowAndLashColoringPricesPage() {
 
   return (
     <div className="w-full flex flex-col bg-background">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white text-2xl sm:text-3xl font-ibarra">
-        Coloration des Cils & Sourcils
-      </h2>
+      <Banniere title="Coloration des Cils & Sourcils" />
 
-      <div className="flex flex-col sm:flex-row w-full items-center sm:p-28 p-24 gap-10 sm:gap-6">
-        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70">
+      <div className="flex flex-col sm:flex-row w-full items-center sm:p-28 p-10 gap-10 sm:gap-6">
+        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70 shadow-xl">
           {eyesBrow && (
             <div className="flex flex-col w-full items-center gap-10 font-ibarra">
               <Image
@@ -57,7 +56,7 @@ function BrowAndLashColoringPricesPage() {
               <p className="text-xl sm:text-lg text-center px-5">
                 {eyesBrow.description}
               </p>
-              <div className="flex w-full justify-between px-5 pb-5 text-2xl sm:text-lg">
+              <div className="flex w-full justify-between px-5 pb-5 text-xl sm:text-lg">
                 <p>{formatPrice(eyesBrow.price)}€</p>
                 <div className="flex gap-1 items-center ">
                   <p>{eyesBrow.duration}&apos;</p>
@@ -76,7 +75,7 @@ function BrowAndLashColoringPricesPage() {
             d&apos;un mois.
           </p>
         </div>
-        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70">
+        <div className="flex flex-col flex-1 border border-1 border-darkText rounded-lg bg-beige bg-opacity-70 shadow-xl">
           {eyesLash && (
             <div className="flex flex-col w-full items-center gap-10 font-ibarra">
               <Image
@@ -86,13 +85,13 @@ function BrowAndLashColoringPricesPage() {
                 alt={eyesLash.name}
                 className="w-full rounded-lg border border-1 border-darkText"
               />
-              <h2 className="text-terracota text-3xl sm:text-xl w-full flex justify-center">
+              <h2 className="text-terracota text-2xl sm:text-xl w-full flex justify-center">
                 {eyesLash.name}
               </h2>
-              <p className="text-2xl sm:text-lg text-center px-5">
+              <p className="text-xl sm:text-lg text-center px-5">
                 {eyesLash.description}
               </p>
-              <div className="flex w-full justify-between px-5 pb-5 text-2xl sm:text-lg">
+              <div className="flex w-full justify-between px-5 pb-5 text-xl sm:text-lg">
                 <p>{formatPrice(eyesLash.price)}€</p>
                 <div className="flex gap-1 items-center ">
                   <p>{eyesLash.duration}&apos;</p>

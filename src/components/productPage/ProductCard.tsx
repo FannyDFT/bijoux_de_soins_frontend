@@ -16,7 +16,7 @@ function ProductCard({ name, image, price }: IProduct) {
     return roundedPrice; // Retourner la valeur arrondie
   };
   return (
-    <div className="flex flex-col gap-2 justify-between h-full w-40 items-center bg-white border border-darkText rounded-t-lg">
+    <div className="flex flex-col gap-2 justify-between h-full w-40 items-center bg-white border border-darkText rounded-t-lg shadow-xl">
       <Image
         src={image}
         width={100}
