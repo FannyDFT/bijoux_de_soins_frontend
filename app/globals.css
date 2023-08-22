@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Ibarra+Real+Nova&family=Imprima&family=Mrs+Saint+Delafield&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
+.textColor {
+  @apply text-terracota;
+}
+
+.buttonConection {
+  @apply bg-terracota text-white;
+}
+
+.inputConection {
+  @apply border-b border-darkText w-full bg-transparent font-imprima p-2 text-base;
+}
+
+.contact {
+  @apply font-MrsSaintDelafield text-4xl text-terracota;
+}
+
+.labelContact {
+  @apply flex flex-col;
+}
+
+.buttonProducts {
+  @apply w-full sm:flex sm:justify-start sm:items-center text-base sm:text-xl p-0 sm:pl-6 sm:pt-6 hover:text-terracota;
+}
+
+.buttonHover {
+  @apply bg-white text-terracota border border-terracota hover:bg-terracota hover:text-white rounded-tl-2xl py-3;
+}
+
+.zoom {
+  @apply hover:scale-125 transition-transform duration-300;
+}
+
+.labelProducts {
+  @apply w-full flex justify-center;
+}
+
+.inputProducts {
+  @apply border border-darkText w-3/4 px-1 py-1;
+}
+
+.containerFooter {
+  @apply h-auto bg-terracota flex flex-col gap-3 justify-between items-center text-whiteText text-sm font-imprima p-4 md:flex-row md:h-48 md:justify-between md:text-base;
+}
+
+.activeButton {
+  @apply text-terracota;
+}
