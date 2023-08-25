@@ -15,7 +15,7 @@ function page() {
           width={1000}
           height={600}
           alt="photo home"
-          className="w-full h-52"
+          className="w-full"
         />
         {/* <h1 className=" absolute top-48 sm:top-96 left-4 sm:left-10 font-MrsSaintDelafield font-semibold text-transparent text-2xl  sm:text-7xl bg-clip-text bg-gradient-to-r from-white to-terracota  p-4">
           Institut Bijoux de Soins
