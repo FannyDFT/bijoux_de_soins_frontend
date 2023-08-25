@@ -45,7 +45,7 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-whiteText opacity-80">
+    <div className="bg-whiteText">
       {/*Desktop Menu*/}
       {!isMobile ? (
         <div className="flex items-center justify-between border-b border-darkText  w-full py-3 ">
@@ -100,7 +100,7 @@ function Navbar() {
           </div>
         </div>
       ) : (
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-between p-4 relative">
           <div>
             <Link href="/auth/signup" className="flex items-center gap-2 ">
               <Image src={conection} width={35} height={35} alt="50" />
@@ -122,7 +122,7 @@ function Navbar() {
       )}
       {/*Mobile Menu*/}
       {isMobile && isOpenMenu && (
-        <div className="flex flex-col gap-4 pl-16 font-ibarra text-xl absolute bg-white w-full h-56">
+        <div className="flex flex-col gap-4 pl-16 font-ibarra text-xl absolute bg-whiteText  w-full h-auto ">
           <Link href="/" onClick={toggleMenu}>
             Accueil
           </Link>
