@@ -26,13 +26,13 @@ function Descriptions() {
       <div className="w-2/3 flex flex-col gap-10 ">
         <div id="title" className={"flex items-center gap-4"}>
           <hr className="w-10 border-1 border-darkText" />
-          <h3 id="title" className="font-ibarra text-4xl">
+          <h3 id="title" className="font-ibarra text-2xl sm:text-4xl">
             L&apos;institut
           </h3>
         </div>
-        <div className="flex flex-col gap-10 font-imprima text-lg">
-          <div className={"flex flex-col items-center"}>
-            <p className="mr-40 sm:mr-72">
+        <div className="flex flex-col gap-10 font-imprima text-lg text-justify sm:text-left">
+          <div className="flex flex-col items-center">
+            <p className="mr-10 sm:mr-72">
               Prendre soin de son <span className="textColor">corps</span>
             </p>
             <p>
@@ -50,10 +50,9 @@ function Descriptions() {
             parenthèse
             <span className="textColor"> détente</span>. Dans le but de réaliser
             des soins de beauté relaxants avec des résultats concrets, j&apos;ai
-            choisi des
+            choisi des{" "}
             <span className="textColor">
-              marques françaises marques françaises respectueuses de
-              l&apos;environnement
+              marques françaises respectueuses de l&apos;environnement
             </span>
             .
           </p>

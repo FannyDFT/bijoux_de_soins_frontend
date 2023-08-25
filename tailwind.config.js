@@ -26,6 +26,9 @@ module.exports = {
         background: "url('/assets/fondsym.jpg')",
         banniere: "url('/assets/photoHome.png')",
       },
+      animation: {
+        "bounce-slow": "bounce 5s linear infinite",
+      },
     },
   },
   plugins: [],
