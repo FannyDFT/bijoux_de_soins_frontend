@@ -46,7 +46,7 @@ function CarouselPrestations() {
     <div className="bg-beige w-full">
       <div className="flex items-center gap-2 m-10 font font-ibarra text-2xl text-darkText  ">
         <hr className="border border-darkText w-5" />
-        <h2>Les Prestations</h2>
+        <h2 className="font-imprima">Les Prestations</h2>
       </div>
       <div className="mb-10 ">
         <Carousel
@@ -54,6 +54,7 @@ function CarouselPrestations() {
           infinite
           autoPlay
           autoPlaySpeed={5000}
+          transitionDuration={300}
           renderDotsOutside
           removeArrowOnDeviceType={["mobile"]}
           className="w-full px-28 "
@@ -62,7 +63,7 @@ function CarouselPrestations() {
             prestations.map((item) => (
               <div key={item.id}>
                 <Link href="/traitments">
-                  <h2 className="flex w-full py-4 justify-center font-MrsSaintDelafield text-3xl hover:hover:scale-125 transition-transform duration-300 hover:text-terracota">
+                  <h2 className="flex w-full py-4 justify-center font-MrsSaintDelafield text-4xl hover:hover:scale-125 transition-transform duration-300 hover:text-terracota text-darkText pt-4 ">
                     {item.name}
                   </h2>
                 </Link>
