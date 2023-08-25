@@ -9,15 +9,17 @@ import CarouselPrestations from "@/components/homePage/carousel/CarouselPrestati
 function page() {
   return (
     <div className="flex flex-col h-auto w-full">
-      <div>
+      <div className="relative w-full ">
         <Image
           src={photoHome}
           width={1000}
-          height={300}
+          height={500}
           alt="photo home"
-          className="w-full h-56 sm:h-auto"
+          className="w-full"
         />
-        {/* <h2 className="font-MrsSaintDelafield text-white">Institut Bijoux de Soins</h2> */}
+        <h1 className="font-MrsSaintDelafield font-semibold text-transparent text-2xl  sm:text-7xl bg-clip-text bg-gradient-to-r from-white to-terracota absolute bottom-8  sm:bottom-40 left-5 sm:left-20 p-4">
+          Institut Bijoux de Soins
+        </h1>
       </div>
       <Descriptions />
       <PrestationsDescription />
