@@ -57,7 +57,7 @@ function Footer() {
                 width={30}
                 height={30}
                 alt="logo instagram"
-                className="zoom"
+                className="zoom "
               />
             </Link>
             <Link
@@ -78,7 +78,13 @@ function Footer() {
           <p className="w-full md:w-auto">copyright</p>
           {imdobile && (
             <button type="button" onClick={scrollToTop}>
-              <Image src={arrow} width={30} height={30} alt="arrow logo" />
+              <Image
+                src={arrow}
+                width={30}
+                height={30}
+                alt="arrow logo"
+                className="animate-bounce"
+              />
             </button>
           )}
         </div>

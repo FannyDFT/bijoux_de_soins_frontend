@@ -23,7 +23,7 @@ function Appointment() {
           width={345}
           height={280}
           alt="photo institut"
-          className="object-cover border border-darkText p-4 bg-white h-[200px] sm:h-[280px] w-[260px] sm:w-[345px]"
+          className=" object-cover border border-darkText p-4 bg-white h-[200px] sm:h-[280px] w-[260px] sm:w-[345px]"
         />
       </div>
     </div>
