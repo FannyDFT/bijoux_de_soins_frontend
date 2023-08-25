@@ -13,6 +13,7 @@ function ProductsList() {
   const [products, setProducts] = useState<IProductsData[]>([]);
   const [selectedProductCategory, setSelectedProductCategory] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showModalConfirmation, setShowModalConfirmation] = useState(false);
 
   //fonction pour l'affichage de la modale
   const handleShowModal = () => {
@@ -38,7 +39,7 @@ function ProductsList() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [products]);
 
   const deleteProduct = async (productId: string) => {
     const URL = process.env.NEXT_PUBLIC_SERVER_URL;
@@ -53,6 +54,7 @@ function ProductsList() {
       setProducts((prevProducts) =>
         prevProducts.filter((product) => product.id !== productId),
       );
+      setShowModalConfirmation(false);
     } catch (error) {
       console.log(error);
     }
@@ -89,6 +91,8 @@ function ProductsList() {
               price={product.price}
               handleShowModal={handleShowModal}
               deleteProduct={deleteProduct}
+              showModalConfirmation={showModalConfirmation}
+              setShowModalConfirmation={setShowModalConfirmation}
             />
           ))}
       </div>
@@ -100,7 +104,7 @@ function ProductsList() {
           height={40}
           alt="more"
           onClick={handleShowModal}
-          className="cursor-pointer"
+          className="cursor-pointer zoom"
         />
       </div>
       <div className=" w-full h-3/4">

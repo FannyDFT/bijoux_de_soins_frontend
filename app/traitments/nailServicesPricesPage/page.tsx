@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import time from "../../../public/assets/time.png";
 import { formatPrice } from "@/service/utils";
+import Banniere from "@/components/Banniere";
 
 interface IMainFeet {
   name: string;
@@ -41,9 +42,10 @@ function NailServicesPricesPage() {
 
   return (
     <div className="bg-background">
-      <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white  text-2xl sm:text-3xl font-ibarra">
+      {/* <h2 className="h-32 bg-terracota w-full flex justify-center items-center text-white  text-2xl sm:text-3xl font-ibarra">
         Beauté des mains & des pieds
-      </h2>
+      </h2> */}
+      <Banniere title="Beauté des mains & des pieds" />
       <div className="w-full flex flex-col gap-20">
         <div className="flex flex-col items-center sm:flex-row sm:items-start w-full gap-6 pl-2 sm:pl-9 mt-14">
           <div className="w-1/3 flex flex-col items-center gap-10">

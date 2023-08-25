@@ -79,7 +79,7 @@ function Signup() {
       </div>
 
       <div
-        className="w-2/3 flex flex-col gap-6 items-center font-imprima text-xl"
+        className="w-11/12 sm:w-2/3 flex flex-col gap-6 items-center font-imprima text-xl"
         onSubmit={handleSubmit}
       >
         <form className="flex flex-col gap-4 w-3/4">

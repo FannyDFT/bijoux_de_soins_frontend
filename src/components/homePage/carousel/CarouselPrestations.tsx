@@ -52,8 +52,8 @@ function CarouselPrestations() {
         <Carousel
           responsive={responsive}
           infinite
-          //   autoPlay
-          autoPlaySpeed={6000}
+          autoPlay
+          autoPlaySpeed={5000}
           renderDotsOutside
           removeArrowOnDeviceType={["mobile"]}
           className="w-full px-28 "

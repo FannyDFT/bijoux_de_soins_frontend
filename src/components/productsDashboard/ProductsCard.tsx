@@ -5,6 +5,7 @@ import Image from "next/image";
 import garbage from "../../../public/assets/poubelle.png";
 import update from "../../../public/assets/editer.png";
 import { formatPrice } from "@/service/utils";
+import ModalConfirmation from "../ModalConfirmation";
 
 interface IProduct {
   id: string;
@@ -13,6 +14,8 @@ interface IProduct {
   price: string;
   handleShowModal: () => void;
   deleteProduct: (productId: string) => void;
+  showModalConfirmation: boolean;
+  setShowModalConfirmation: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function ProductsCard({
@@ -22,6 +25,8 @@ function ProductsCard({
   id,
   handleShowModal,
   deleteProduct,
+  showModalConfirmation,
+  setShowModalConfirmation,
 }: IProduct) {
   return (
     <div className="flex flex-wrap justify-around gap-6 pb-4 items-center border-b border-darkText w-5/6 font-imprima ">
@@ -39,7 +44,7 @@ function ProductsCard({
         width={20}
         height={20}
         alt="update"
-        className=" cursor-pointer"
+        className="zoom cursor-pointer"
         onClick={handleShowModal}
       />
       <Image
@@ -47,9 +52,17 @@ function ProductsCard({
         width={20}
         height={20}
         alt="delete"
-        className=" cursor-pointer "
-        onClick={() => deleteProduct(id)}
+        className="zoom cursor-pointer "
+        onClick={() => setShowModalConfirmation(true)}
       />
+      <div className=" w-full h-3/4">
+        {showModalConfirmation && (
+          <ModalConfirmation
+            deleteProduct={() => deleteProduct(id)}
+            setShowModalConfirmation={setShowModalConfirmation}
+          />
+        )}
+      </div>
     </div>
   );
 }

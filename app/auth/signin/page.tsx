@@ -35,7 +35,7 @@ function Login() {
         </h3>
       </div>
       <div className="w-full flex justify-center">
-        <div className="flex flex-col gap-6 text-xl font-imprima w-4/5/3 sm:w-1/3">
+        <div className="flex flex-col gap-6 text-xl font-imprima w-4/5 sm:w-1/3">
           <div className="flex flex-col gap-6">
             <label>E-mail</label>
             <input
