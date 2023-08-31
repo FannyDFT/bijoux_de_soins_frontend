@@ -15,8 +15,8 @@ function CarouselPrestations() {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2, // optional, default to 1.
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -44,9 +44,13 @@ function CarouselPrestations() {
 
   return (
     <div className="bg-beige w-full">
-      <div className="flex items-center gap-2 m-10 font font-ibarra text-2xl text-darkText  ">
-        <hr className="border border-darkText w-5" />
-        <h2 className="font-imprima">Les Prestations</h2>
+      <div className="flex items-center gap-2 m-10 font font-ibarra text-2xl text-darkText ">
+        <hr className="border border-darkText w-5 hover:zoom hover:text-terracota" />
+        <Link href="/traitments">
+          <h2 className="font-imprima hover:zoom hover:text-terracota animate-bounce">
+            Les Prestations
+          </h2>
+        </Link>
       </div>
       <div className="mb-10 ">
         <Carousel
@@ -62,11 +66,10 @@ function CarouselPrestations() {
           {prestations &&
             prestations.map((item) => (
               <div key={item.id}>
-                <Link href="/traitments">
-                  <h2 className="flex w-full py-4 justify-center font-MrsSaintDelafield text-4xl hover:hover:scale-125 transition-transform duration-300 hover:text-terracota text-darkText pt-4 ">
-                    {item.name}
-                  </h2>
-                </Link>
+                <h2 className="flex w-full py-4 justify-center font-MrsSaintDelafield text-4xl text-darkText pt-4 ">
+                  {item.name}
+                </h2>
+
                 <div>
                   <Image
                     src={item.image}

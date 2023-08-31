@@ -59,38 +59,53 @@ function ProductPage() {
       <div className="flex flex-col sm:flex sm:flex-row w-full sm:w-full h-full">
         <div className="w-full h-24 sm:h-screen sm:w-1/4 bg-beige bg-opacity-40 overflow-x-scroll overflow-hidden border-r-2 border-darkText flex flex-row gap-5 sm:flex sm:flex-col sm:items-start sm:gap-10 font-imprima">
           <button
-            className="pt-0 pl-5 sm:pt-10 hover:text-terracota text-lg whitespace-nowrap"
+            // className="pt-0 pl-5 sm:pt-10 hover:text-terracota text-lg whitespace-nowrap"
+            className={`pt-0 pl-5 sm:pt-10 text-lg whitespace-nowrap hover:text-terracota hover:scale-125 transition-transform duration-300 ${
+              selectedCategory === "pulpeProducts" ? "activeButton" : ""
+            }`}
             onClick={() => handleCategoryChange("pulpeProducts")}
           >
             Pulpe de vie
           </button>
           <button
-            className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            // className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            className={`pl-5 text-lg whitespace-nowrap hover:text-terracota hover:scale-125 transition-transform duration-300 ${
+              selectedCategory === "referenceProducts" ? "activeButton" : ""
+            }`}
             onClick={() => handleCategoryChange("referenceProducts")}
           >
             Référence Cosmétique
           </button>
           <button
-            className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            // className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            className={` pl-5 whitespace-nowrappl-5 text-lg whitespace-nowrap hover:text-terracota hover:scale-125 transition-transform duration-300 ${
+              selectedCategory === "zaoProducts" ? "activeButton" : ""
+            }`}
             onClick={() => handleCategoryChange("zaoProducts")}
           >
             Zao Make Up
           </button>
           <button
-            className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            // className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            className={`pl-5 text-lg whitespace-nowrap hover:text-terracota hover:scale-125 transition-transform duration-300 ${
+              selectedCategory === "laboratoireProducts" ? "activeButton" : ""
+            }`}
             onClick={() => handleCategoryChange("laboratoireProducts")}
           >
             Laboratoires de Biarritz
           </button>
           <button
-            className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            // className="pl-5 hover:text-terracota text-lg whitespace-nowrap"
+            className={`pl-5 text-lg whitespace-nowrap hover:text-terracota hover:scale-125 transition-transform duration-300 ${
+              selectedCategory === "luxyProducts" ? "activeButton" : ""
+            }`}
             onClick={() => handleCategoryChange("luxyProducts")}
           >
             Luxy Cils
           </button>
         </div>
-        <div className="w-full h-screen sm:w-3/4 bg-beige bg-opacity-70 flex justify-center items-center">
-          <div className="w-full h-4/5 flex flex-wrap gap-12 justify-center items-center overflow-y-scroll no-scrollbar">
+        <div className="w-full h-screen sm:w-3/4 bg-beige bg-opacity-70 flex justify-center items-center ">
+          <div className="w-full h-4/5 mx-16 pt-5 flex flex-wrap gap-12 justify-center items-center overflow-y-scroll no-scrollbar">
             {selectedCategory &&
               productsData[selectedCategory] &&
               productsData[selectedCategory].map((item) => (

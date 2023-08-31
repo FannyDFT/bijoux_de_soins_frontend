@@ -53,6 +53,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setAuthState({ user: null, isAuth: false, isLoading: false });
     localStorage.removeItem("token");
     axios.defaults.headers.common.authorization = "";
+    window.location.href = "/";
   };
 
   useEffect(() => {
