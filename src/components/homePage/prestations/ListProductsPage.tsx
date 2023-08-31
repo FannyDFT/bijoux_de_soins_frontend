@@ -58,7 +58,7 @@ function ListProductsPage() {
           href="/products"
           className="hover:text-terracota hover:cursor-pointer"
         >
-          <h2>Les Produits</h2>
+          <h2>Les Marques Produits</h2>
         </Link>
       </div>
       <div className="w-full h-auto bg-beige bg-opacity-40 pb-14 flex justify-center items-center">

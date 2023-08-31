@@ -70,7 +70,7 @@ function ProductsList() {
           className="border border-darkText py-1 px-2"
         />
       </div>
-      <div className="w-full h-96  overflow-y-scroll no-scrollbar flex flex-col gap-8 items-center">
+      <div className="w-full h-auto overflow-y-scroll no-scrollbar flex flex-col gap-8 items-center">
         {products
           .filter((product) => {
             const categoryName = product.name.toLowerCase();
