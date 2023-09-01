@@ -80,11 +80,18 @@ function Modal({ setShowModal, fetchData }: ModalProps) {
   };
 
   return (
-    <div className=" flex justify-center absolute top-0 left-0 w-full  py-6">
+    <div className=" flex justify-center absolute top-24 left-40 w-full py-6">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col px-10 py-10 items-center gap-10 bg-terracota w-3/5 border border-darkText shadow-inner "
+        className="flex flex-col px-10 py-10 items-center gap-10 bg-terracota w-3/5 border border-darkText shadow-inner relative"
       >
+        <button
+          type="button"
+          className="absolute top-4 right-4 text-white font-bold cursor-pointer"
+          onClick={() => setShowModal(false)}
+        >
+          X
+        </button>
         <label htmlFor="name" className="labelProducts">
           <input
             type="text"

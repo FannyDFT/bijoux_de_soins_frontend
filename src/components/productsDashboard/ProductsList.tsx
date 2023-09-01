@@ -62,15 +62,15 @@ function ProductsList() {
 
   return (
     <div className="h-full pt-8 flex flex-col gap-10 justify-center">
-      <div className="w-full h-1/5 flex justify-center">
+      <div className="w-full h-1/6 flex justify-center items-center">
         <input
           type="text"
           onChange={handleChangeInput}
           placeholder="Rechercher..."
-          className="border border-darkText py-1 px-2"
+          className="border border-darkText py-1 px-2 h-8"
         />
       </div>
-      <div className="w-full h-auto overflow-y-scroll no-scrollbar flex flex-col gap-8 items-center">
+      <div className="w-full h-4/6 overflow-y-scroll no-scrollbar flex flex-col gap-8 items-center">
         {products
           .filter((product) => {
             const categoryName = product.name.toLowerCase();
@@ -97,17 +97,17 @@ function ProductsList() {
           ))}
       </div>
 
-      <div className="w-full h-1/5 flex justify-end pr-28 ">
+      <div className="w-full h-1/6 flex justify-end pr-28 ">
         <Image
           src={more}
           width={40}
           height={40}
           alt="more"
           onClick={handleShowModal}
-          className="cursor-pointer zoom"
+          className="cursor-pointer zoom h-10"
         />
       </div>
-      <div className=" w-full h-3/4">
+      <div>
         {showModal && (
           <Modal setShowModal={setShowModal} fetchData={fetchData} />
         )}
